@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 <title>GFB</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 	crossorigin="anonymous">
+	 <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet"> 
+	<link rel="stylesheet" href="/stylesheets/main.css"><!--  no need to add public because static command is running -->
+	  <link rel="stylesheet" href="/stylesheets/landing.css">
+	  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.21.0/ui/trumbowyg.min.css"> -->
+
+  </head>
+	
+	<body>
+	<!-- <nav class="navbar navbar-light bg-primary navbar-expand-sm pt-0" role="navigation">
+	<div class="container">
+       <div class="navbar-header mt-2">
+		   		<a class="navbar-brand p-0" href="/">
+				<img src="https://www.graphicsprings.com/filestorage/stencils/f93ce9d20babc6436d34ddc758b5d73b.png?width=500&height=500" height ="60" width="60" alt="logo">
+				Guwahati Foodie
+		   		</a>
+	   </div>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+		<div class = "collapse navbar-collapse" id="navbar-list-2">
+		  <ul class=" navbar-nav ml-auto">
+			<%  if(!currentUser){ %>
+			   <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+			   <li class="nav-item"><a href="/login" class="nav-link" id="link">Login</a></li>
+			   <li class="nav-item"><a href="/register" class="nav-link">Sign Up</a></li>
+			<%  }else{   %>
+			   <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+			   <li class="nav-item"><a href="#"class="nav-link">Signed In as <%= currentUser.username%>						</a></li>
+			   <li class="nav-item"><a href="/logout"class="nav-link">Log Out</a></li>
+			   <% } %>
+		   </ul>
+		</div>
+		</div>
+</nav> -->
+    
+	<nav class="navbar navstyle <%= navclass %> navbar-trans navbar-expand-md fixed-top " id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="/">Robust Foodie</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+		<span></span>
+		<span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarDefault">
+        <ul class="navbar-nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Eat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#service">Drink</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#work">Travel</a>
+          </li>
+		  <%  if(!currentUser){ %>
+		  <li class="nav-item">
+            <a class="nav-link" href="/login">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="log_in" href="/register">Register</a>
+          </li>
+		  <%  }else{   %>
+		 <li class="nav-item">
+            <a class="nav-link" href="#">Signed In as <%= currentUser.username%></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="log_in" href="/logout">Logout</a>
+          </li>
+		 <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+	

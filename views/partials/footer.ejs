@@ -1,0 +1,73 @@
+	<!-- empty error is true so error.length is used -->
+	<% if(error && error.length > 0){ %>
+	<div class="alert alert-danger">
+		<%= error %>
+	</div>
+		<%}%>
+	
+			
+	<% if(message && message.length > 0){ %>
+	<div class="alert alert-success">
+		<%= message %>
+	</div>
+		<%}%>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <!-- include summernote css/js -->
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.2/tinymce.min.js" referrerpolicy="origin"></script> -->
+    		
+
+    <script>
+		$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".navstyle");
+    $nav.toggleClass('navbar-reduce', $(this).scrollTop() > $nav.height());
+ 	 });
+		});
+		</script>
+    <!-- <script>
+$(document).ready(function() {
+    // $('#summernote').summernote();
+	$( document ).ajaxStart(function() {
+    $( "#overlay" ).fadeIn(300);
+	});
+	
+	$( document ).ajaxComplete(function() {
+    $( "#overlay" ).fadeOut(300);
+	});
+})
+	</script> -->
+     <script src="editor.js"></script>
+
+	<script>
+		  if ($('.text-slider').length == 1) {
+    var content  = $('.text-slider-items').text();
+    var typed = new Typed('.text-slider', {
+      strings: content.split(','),
+      typeSpeed: 80,
+      loop: true,
+      backDelay: 1100,
+      backSpeed: 30
+    });
+  }
+   </script>
+
+
+   <script>
+
+	 $("#sign,#forget").click(function(){
+	 $("div.forget").toggleClass("slide-up")
+	 $("div.sign").toggleClass("slide-up")
+	 })	   
+    </script>
+<!-- <p>
+	Trademark 2020
+</p> -->
+
+</body>
+</html>

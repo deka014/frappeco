@@ -1,0 +1,47 @@
+<%- include ("partials/header")%>
+
+<!-- <h1>
+	SIGN UP
+</h1>
+
+<form action="/register" method= "POST">
+	<input type="text" name="username" placeholder="username">
+	<input type="password" name="password" placeholder="password">
+	<input type="text" name="invite" placeholder="invitation code">
+	<button>SUBMIT</button>
+
+</form> -->
+<div class="gateway d-flex justify-content-center align-items-center mt-5 pt-5 pb-5">
+	<div class="form-structor">
+	<div class="signup">
+		<h2 class="form-title mr-3" id="signup"><span>or</span>Sign up</h2>
+		<form action="/register" method= "POST">
+		<div class="form-holder">
+			<input type="text" class="input" name="username" placeholder="username">
+			<input type="password" class="input" name="password" placeholder="password">
+			<input type="text" class="input" name="invite" placeholder="invitation code">
+		</div>
+		</form>
+		<button class="submit-btn">Sign up</button>
+	
+	</div>
+	<div class="login slide-up">
+		<div class="center">
+			<h2 class="form-title mr-4" id="login">Forgot your Password?</h2>
+			<form action="/login" method= "POST">
+			<div class="form-holder">
+					<input type="text" class="input" name="username" placeholder="username">
+					<input type="password" class="input" name="password" placeholder="password">
+				
+			</div>
+			<button class="submit-btn">Log in</button>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+
+<%- include ("partials/footer")%>
