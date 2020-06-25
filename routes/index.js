@@ -15,7 +15,12 @@ router.get("/register",function(req,res){
 //handle sign up 
 router.post("/register",function(req,res){
 	if (req.body.invite == "deep123"){
-	User.register(new User({username:req.body.username}),req.body.password,function(err,user){                          //user.register is a passport command
+	var newUser = new User({
+		username :req.body.username, 
+		email : req.body.email
+	})
+	
+	User.register(newUser,req.body.password,function(err,user){                          //user.register is a passport command
 		if(err){
       return res.render("register", {"error": err.message});  //new way when res.render exist not res.redirect
     }
@@ -49,7 +54,19 @@ router.get("/logout",function(req,res){
 	res.redirect("/");
 })
 
-//middleware
+//profile 
 
+router.get("/profile/:id",function(req,res){
+	User.findById(req.params.id,function(err,foundUser){
+			if(err || !foundUser){
+			req.flash("error","No Profile Found");
+			res.redirect("/")
+		}
+		else{
+		  	res.render("profile",{foundUser: foundUser})
+		}
+	})
+		
+})
 
 module.exports = router;
