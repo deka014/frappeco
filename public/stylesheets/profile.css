@@ -868,10 +868,10 @@ img {
 
 .clear-filter[filter-color="orange"] {
     background: rgba(44, 44, 44, 0.2);
-    background: -webkit-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+    /* background: -webkit-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6)); */
     background: -o-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-    background: -moz-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
-    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+    /* background: -moz-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+    background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6)); */
 }
 
 
@@ -949,3 +949,14 @@ img {
 	color:white;
 }
 
+
+
+
+/* profile update css*/
+
+
+.container {
+  max-width: 960px;
+}
+
+.lh-condensed { line-height: 1.25; }

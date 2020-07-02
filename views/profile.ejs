@@ -32,15 +32,15 @@
 <div class="profile-page mt-5 pt-4 ">
    <div class="wrapper">
     <div class="page-header clear-filter" filter-color="orange">
-      <div class="page-header-image" data-parallax="true" style="background-image:url('https://images.unsplash.com/photo-1592919920613-dc10469b4557?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=714&q=80');">
+      <div class="page-header-image" data-parallax="true" style="background-image:url('<%=foundUser.profileCover%>');">
       </div>
       <div class="container">
         <div>
-          <img class="profile-pic" src="https://images.unsplash.com/photo-1592931028644-4de74fcb1cae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=375&q=80" alt="ProfilePiture">
+          <img class="profile-pic" src="<%=foundUser.avatar%>" alt="ProfilePiture">
         </div>
         <!-- <h3 class="title">Ryan Scheinder</h3> -->
 		  <div class="verified"><p>Verified Account</p></div>
-		  <h3 class="username">Deepjyoti Deka</h3>
+		  <h3 class="username"><%=foundUser.username%></h3>
                 <svg class="uname-verified mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1350.03 1326.16">
                     <defs><style>.cls-11{fill:var(--primary);}.cls-12{fill:#ffffff;}</style></defs><title>verified</title>
                     <g id="Layer_3" data-name="Layer 3">
@@ -68,7 +68,10 @@
     <div class="section">
       <div class="container">
         <div class="button-container">
+		<% if( currentUser && foundUser._id.equals(currentUser._id)){ %>
+		<a href="/profile/<%=currentUser._id%>/update" class="btn btn-primary btn-round btn-lg">Update Profile</a>		 <% }else{%>
           <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
+			<% }%>
           <!-- <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
             <i class="fab fa-twitter"></i>
           </a>

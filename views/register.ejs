@@ -1,6 +1,6 @@
 <%- include ("partials/header")%>
 
-<h1>
+<!-- <h1>
 	SIGN UP
 </h1>
 
@@ -10,30 +10,30 @@
 	<input type="password" name="password" placeholder="password">
 	<input type="text" name="invite" placeholder="invitation code">
 	<button>SUBMIT</button>
-
-<!-- </form>
-<div class="gateway d-flex justify-content-center align-items-center mt-5 pt-5 pb-5">
+</form> -->
+	
+	<div class="gateway d-flex justify-content-center align-items-center mt-5 pt-5 pb-5">
 	<div class="form-structor">
-	<div class="signup">
-		<h2 class="form-title mr-3" id="signup"><span>or</span>Sign up</h2>
+	<div class="sign">
+		<h2 class="form-title mr-3" id="sign"><span>or</span>Create Account</h2>
 		<form action="/register" method= "POST">
 		<div class="form-holder">
-			<input type="text" class="input" name="username" placeholder="username">
-			<input type="password" class="input" name="password" placeholder="password">
-			<input type="text" class="input" name="invite" placeholder="invitation code">
+			<input type="text" class="input" name="username" placeholder=" Unique username">
+			<input type="email" class="input" name="email" placeholder=" Email">
+			<!-- <input type="email" class="input" name="re-email" placeholder=" Confirm Email"> -->
+			<input type="password" class="input" name="password" placeholder=" Password">
+			<input type="text" class="input" name="invite" placeholder=" Invitation Code">
 		</div>
+			<button class="submit-btn">Register</button>
 		</form>
-		<button class="submit-btn">Sign up</button>
-	
+		
 	</div>
-	<div class="login slide-up">
+	<div class="forget slide-up">
 		<div class="center">
-			<h2 class="form-title mr-4" id="login">Forgot your Password?</h2>
-			<form action="/login" method= "POST">
+			<h2 class="form-title " id="forget">Terms & Conditions</h2>
+			<form action="/forget" method= "POST">
 			<div class="form-holder">
-					<input type="text" class="input" name="username" placeholder="username">
-					<input type="password" class="input" name="password" placeholder="password">
-				
+					<input type="text" class="input" name="email" placeholder="Enter Your Email">
 			</div>
 			<button class="submit-btn">Log in</button>
 			</form>
@@ -41,8 +41,7 @@
 	</div>
 </div>
 </div>
- -->
-
+	
 
 
 <%- include ("partials/footer")%>
