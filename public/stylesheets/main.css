@@ -292,8 +292,47 @@ h6 {
   opacity: 0.9;
 }
 
+/* navbar search */
 
+	       #nav-menu .last {
+  font-family: 'FontAwesome';
+  margin-right: 0px;
+  width: 30px;
+  transition: all 0.2s linear 0.0s;
+    cursor: pointer;
+}
 
+#nav-menu .last #searchfield{
+  width: 0;
+  opacity: 0;
+  border: solid 0px;
+  outline: none;
+  color: #EF9546;
+  font-weight: bold;
+  padding-left: 10px;
+  font-size: 1.0em;
+  background: transparent;
+  transition: opacity 0s linear 0.2s,
+              border 0.2s linear 0.0s,
+              width 0.2s linear 0s;
+}
+
+#nav-menu .last.active > #searchfield{
+  display: inline;
+  opacity: 100;
+  width: 5em;
+  transition: opacity 0s linear 0s,
+              border 0s linear 0s,
+              width 0.2s linear 0s;
+
+  
+}
+#nav-menu .last.active {
+  border: solid 2px #EF9546;
+  padding: 10px 10px 10px 10px;
+  color: #EF9546;
+  cursor: auto;
+}
 
 /* below navbar */
 .intro {

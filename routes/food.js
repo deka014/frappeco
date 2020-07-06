@@ -28,6 +28,17 @@ cloudinary.config({
 
 
 router.get("/",function(req,res){
+	if (req.query.search){
+		const regex = new RegExp(escapeRegex(req.query.search),"gi");
+		Food.find({title : regex} ,function(err,searchFood){
+			if(err || !searchFood.length){
+                req.flash('error', 'No Food matched your search. Please try again.');
+                res.redirect("back");
+			}else{
+				res.render("search",{searchFood : searchFood})
+			}
+		})
+	}else
 	// req.user    //contains all the information about logged in user
 	Food.find({},function(err,allFood){
 		if(err){
@@ -73,6 +84,15 @@ router.post("/",function(req,res){ //here the campgrounds is accesed from form A
 	});
 })
 
+// router.get("/search",function(req,res){
+// 	var searched = req.query.search
+// 	console.log('/'+searched+'/' )
+// 	Food.find({title : '/'+searched+'/' } ,function(err,searchFood){
+// 		console.log(searchFood)
+// 		res.render("search",{searchFood : searchFood})
+// 	})
+// })
+
 router.get("/:id",function(req,res){
 	Food.findById(req.params.id).populate("comments").exec(function(err,foundfood){
 		if(err || !foundfood){
@@ -85,6 +105,8 @@ router.get("/:id",function(req,res){
 		
 	})
 })
+
+
 // edit campground
 // router.get("/:id/edit",function(req,res){
 // 	//is user logged in
@@ -126,6 +148,8 @@ router.get("/:id",function(req,res){
 
 //middleware
 
-
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;

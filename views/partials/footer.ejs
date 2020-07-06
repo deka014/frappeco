@@ -55,6 +55,24 @@
 	 $("div.sign").toggleClass("slide-up")
 	 })	   
    </script>
+
+<script>
+$(document).mouseup(function (e)
+{
+    var container = $("#search-menu");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container.removeClass("active");
+    }
+});
+
+$("#search-menu").click(function() {
+  $( this ).addClass("active");
+  document.getElementById("searchfield").focus();
+});
+</script>
 <!-- <p>
 	Trademark 2020
 </p> -->
