@@ -1,4 +1,7 @@
 /* general */
+.container{
+	max-width:1130px
+}
 
 body {
   background-color: #f5f5f5;
@@ -447,7 +450,7 @@ h6 {
 }
 
 /* iframe for videos */
-@media (max-width: 479px) {
+/* @media (max-width: 479px) {
 iframe {
     position: relative;
     top:0;
@@ -455,6 +458,6 @@ iframe {
     width: auto;
     height: auto;
 }
-}
+} */
 
 
