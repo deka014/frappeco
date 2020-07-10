@@ -19,15 +19,17 @@ $(document).ready(function() {
   ['color', ['color']],
   ['para', ['ul', 'ol', 'paragraph']],
   ['table', ['table']],
-  ['insert', ['link', 'picture', 'video','videoAttributes','media','link','hr']],
+  // ['insert', ['link', 'picture', 'video','videoAttributes','media','link','hr']],
+	 ['insert', ['link', 'picture', 'video','link']],
+
   ['view', ['fullscreen', 'codeview', 'help']]
 ],
         callbacks: {                                        
             onImageUpload : function(file, editor, welEditable) {
                 saveFile(file[0], editor, welEditable);
             }
-        }                                
-    });
+        }
+    })
 
     function saveFile(file, editor, welEditable){
         data = new FormData();

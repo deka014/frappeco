@@ -174,7 +174,7 @@
               $videoHTML      = $('<div/>');
           if ($videoSize.val() == 0) {
             $videoHTML.addClass('embed-responsive embed-responsive-16by9');
-            $videoHTML.css({'float': $videoAlignment.val()});
+            // $videoHTML.css({'float': $videoAlignment.val()});
             var videoWidth  = 'auto',
                 videoHeight = 'auto';
           }
