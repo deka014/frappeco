@@ -55,7 +55,7 @@ router.get("/new",function(req,res){
     res.render("food/new"); 
 })
 
-
+//ajax upload
 router.post("/save",upload.single('file'),function(req,res){
 	
 	console.log(req.file.path);
@@ -107,40 +107,40 @@ router.get("/:id",function(req,res){
 })
 
 
-// edit campground
-// router.get("/:id/edit",function(req,res){
-// 	//is user logged in
-// 			Campground.findById(req.params.id,function(err,foundCampground){
-// 			res.render("campground/edit",{campground: foundCampground})
+// edit food
+router.get("/:id/edit",function(req,res){
+	//is user logged in
+			Food.findById(req.params.id,function(err,foundfood){
+			res.render("food/edit",{food: foundfood})
 			
-// 	});
-// });
+	});
+});
 
 
-//update campgroundrod
-// router.put("/:id",function(req,res){
-// 	//find and update the correct campground
-// 	Campground.findByIdAndUpdate(req.params.id,req.body.campground,function(err, updatedCamp){
-// 		if(err){
-// 			console.log(err);
-// 		}else {
-// 			res.redirect("/campgrounds/" + req.params.id ) //or updatedCamp._id = req.params.id  both gives the id
-// 		}
-// 	})
-// })
+//update food
+router.put("/:id",function(req,res){
+	//find and update the correct campground
+	Food.findByIdAndUpdate(req.params.id,req.body.food,function(err, updatedfood){
+		if(err){
+			console.log(err);
+		}else {
+			res.redirect("/" + req.params.id ) //or updatedfood._id = req.params.id  both gives the id
+		}
+	})
+})
 
-//destroy campground 
+//destroy food 
 
-// router.delete("/:id",function(req,res){
-// 			Campground.findByIdAndRemove(req.params.id,function(err){
-// 				if(err){
-// 					res.redirect("/campgrounds");
-// 				}else{
-// 					res.redirect("/campgrounds")
-// 				}
-// 			})
+router.delete("/:id",function(req,res){
+			Food.findByIdAndRemove(req.params.id,function(err){
+				if(err){
+					res.redirect("/");
+				}else{
+					res.redirect("/");
+				}
+			})
 			  
-// 			  })
+			  })
 
 
 

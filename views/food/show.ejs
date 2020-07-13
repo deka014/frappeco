@@ -20,8 +20,17 @@
 				<!-- <div class="caption-full"> -->
 				<div class="container"> 
 					<p><%-food.description%></p>
-					<p><em> Submitted By <a href="/profile/<%=food.author.id%>"><%=food.author.username%></a></em></p>
-		
+					<p><em> Submitted By <a href="/profile/<%=food.author.id%>"><%=food.author.username%>						</a></em></p>
+					
+					<a class= "btn btn-xs btn-warning" href="/<%=food._id%>/edit">
+						Edit
+					</a>
+					
+					<form id="delete-form" action="/<%= food._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want To Do That?')" style="display:inline;">
+						<button class="btn btn-danger">
+							Delete
+						</button>
+					</form>
 				</div>
 			</div>
 			<div class="Well">
