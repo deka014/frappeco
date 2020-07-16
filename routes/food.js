@@ -35,7 +35,7 @@ router.get("/",function(req,res){
                 req.flash('error', 'No Food matched your search. Please try again.');
                 res.redirect("back");
 			}else{
-				res.render("search",{searchFood : searchFood})
+				res.render("food/showcase",{topic :"search result for : "+ req.query.search})
 			}
 		})
 	}else
@@ -92,6 +92,18 @@ router.post("/",function(req,res){ //here the campgrounds is accesed from form A
 // 		res.render("search",{searchFood : searchFood})
 // 	})
 // })
+
+router.get("/travel",function(req,res){
+	res.render("food/showcase",{topic:"travel"})
+})
+
+router.get("/drink",function(req,res){
+	res.render("food/showcase",{topic:"drink"})
+})
+
+router.get("/eat",function(req,res){
+	res.render("food/showcase",{topic:"eat"})
+})
 
 router.get("/:id",function(req,res){
 	Food.findById(req.params.id).populate("comments").exec(function(err,foundfood){

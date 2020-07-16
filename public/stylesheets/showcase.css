@@ -1,0 +1,69 @@
+
+
+#journal-blog h2{
+	font-size: 25px;
+ 	letter-spacing: 2px;
+	color: #292929;
+  	font-weight: 600;
+	text-transform: uppercase;
+	margin-top:120px;
+	margin-bottom:60px;
+}
+
+
+#journal,  #journal-blog {
+  height: auto;
+  width: 100%;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+#journal-blog {
+  padding-bottom: 30px;
+}
+
+#journal .journal-block {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  
+}
+
+#journal .journal-block .journal-info {
+  position: relative;
+}
+
+
+
+.journal-block .journal-info .journal-txt {
+  padding: 25px 0px;
+  position: relative;
+}
+
+.journal-block .journal-info .journal-txt a {
+  display: block;
+  margin: 0 0 13px 0;
+  /* -moz-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s; */
+}
+
+/* .journal-block .journal-info .journal-txt h4 a:hover {
+  color: #b8a07e;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+} */
+
+/* .journal-info .journal-txt p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+} */
+
+
+
