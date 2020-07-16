@@ -1,4 +1,6 @@
-var mongoose = require("mongoose")
+var mongoose = require("mongoose"),
+	mongoosePaginateV2 = require("mongoose-paginate-v2");
+
 var foodSchema = new mongoose.Schema({
 	title: String,
 	image1: String,
@@ -18,4 +20,7 @@ var foodSchema = new mongoose.Schema({
 	]
 });
 // var Campground = mongoose.model("Campground",campgroundSchema);
+
+foodSchema.plugin(mongoosePaginateV2);
+
 module.exports = mongoose.model("Food",foodSchema);

@@ -94,7 +94,16 @@ router.post("/",function(req,res){ //here the campgrounds is accesed from form A
 // })
 
 router.get("/travel",function(req,res){
-	res.render("food/showcase",{topic:"travel"})
+	Food.paginate({}, {
+				 		 page: req.query.page || 1,
+				  		 limit: 1
+					   },function(err,allFood){
+			if(err){
+			console.log(err);
+			} else{
+				    res.render("food/showcase",{food: allFood, currentUser : req.user, topic:"travel"});  //allCampground is accesing the database 
+                  }
+	})
 })
 
 router.get("/drink",function(req,res){

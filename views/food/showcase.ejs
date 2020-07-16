@@ -11,15 +11,16 @@
     <div class="container">
       <div class="journal-block">
         <div class="row">
-
+		
+		<%food.docs.forEach(function(food){ %>
           <div class="col-lg-4 col-md-6">
             <div class="journal-info mb-30">
 
-              <a href="blog-single.html"><img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" class="img-responsive" alt="img"></a>
+              <a href="blog-single.html"><img src="<%= food.image1%>" class="img-responsive" alt="img"></a>
 
               <div class="journal-txt">
 
-				  <a href="blog-single.html"><h4 class="card-title">Now This Is Beautiful</h4></a>
+				  <a href="blog-single.html"><h4 class="card-title"><%= food.title%></h4></a>
                 <p class="card-text">Everything you want is here 
                 </p>
 
@@ -27,8 +28,9 @@
 
             </div>
           </div>
+			<% }) %>
 			
-			 <div class="col-lg-4 col-md-6">
+			 <!-- <div class="col-lg-4 col-md-6">
             <div class="journal-info mb-30">
 
               <a href="blog-single.html"><img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="img"></a>
@@ -91,7 +93,7 @@
 
             </div>
           </div>
-
+ -->
          
 
         </div>
@@ -100,5 +102,27 @@
   </div>
   <!-- End section journal -->
 
+ <!-- <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-left"></i></a></li>
+                                <li class="page-item active"><a class="page-link" href="#" data-abc="true">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-right"></i></a></li>
+                            </ul> -->
+
+<div style="margin-bottom:20px; margin-left:50%;">
+<% if(food.page - 1) { %>
+	<a href="/<%=topic%>?page=<%= food.page - 1 %>">Prev</a>
+<% } %>
+<% for(let i = 1; i <= food.totalPages; i++) { %>
+	<a href="/<%=topic%>?page=<%= i %>"
+		 <%= i === food.page ? 'style=color:#000;' : '' %>
+		><%= i %></a>
+<% } %>
+<% if(food.hasNextPage) { %>
+	<a href="/<%=topic%>?page=<%= food.page + 1 %>">Next</a>
+<% } %>
+</div>
 
 <%- include ("../partials/footer")%>
