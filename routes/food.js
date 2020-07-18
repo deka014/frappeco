@@ -27,7 +27,7 @@ cloudinary.config({
 	
 
 
-router.get("/",function(req,res){
+router.get("/wait",function(req,res){
 	if (req.query.search){
 		const regex = new RegExp(escapeRegex(req.query.search),"gi");
 		Food.find({title : regex} ,function(err,searchFood){
@@ -49,6 +49,38 @@ router.get("/",function(req,res){
                   }
 	})
     
+})
+
+router.get("/",async function(req,res){
+	if (req.query.search){
+		const regex = new RegExp(escapeRegex(req.query.search),"gi");
+		let food = await Food.paginate({title : regex}, {
+			page: req.query.page || 1,
+			limit: 1,
+			sort: '-_id'
+		});
+		food.page = Number(food.page);
+		if (!food.docs.length) {
+			req.flash('error', 'No Food matched your search. Please try again.');
+            res.redirect("back");;
+		}else{
+		// const delimiter = req.query.search ? '&' : '?';      not used because there are no multiple query
+		var paginatedUrl = req.originalUrl.replace(/(\?|\&)page=\d+/g, '') + "&"
+		res.render("food/showcase",{topic :"search result for : "+ req.query.search, paginatedUrl , food})	
+		}
+		
+	}
+	else{
+		Food.find({},function(err,allFood){
+		if(err){
+			console.log(err);
+			} else{
+				    res.locals.navclass = "home-nav-color";
+				    res.render("food/index",{food: allFood, currentUser : req.user});  //allCampground is accesing the database 
+                  }
+	})
+		
+	}
 })
 
 router.get("/new",function(req,res){
@@ -101,7 +133,8 @@ router.get("/travel",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-				    res.render("food/showcase",{food: allFood, currentUser : req.user, topic:"travel"});  //allCampground is accesing the database 
+				
+			res.render("food/showcase",{food: allFood, currentUser : req.user, topic:"travel"});  //allCampground is accesing the database 
                   }
 	})
 })

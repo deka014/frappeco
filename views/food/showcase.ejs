@@ -113,15 +113,15 @@
 
 <div style="margin-bottom:20px; margin-left:50%;">
 <% if(food.page - 1) { %>
-	<a href="/<%=topic%>?page=<%= food.page - 1 %>">Prev</a>
+	<a href="<%=paginatedUrl%>page=<%= food.page - 1 %>">Prev</a>
 <% } %>
 <% for(let i = 1; i <= food.totalPages; i++) { %>
-	<a href="/<%=topic%>?page=<%= i %>"
+	<a href="<%=paginatedUrl%>page=<%= i %>"
 		 <%= i === food.page ? 'style=color:#000;' : '' %>
 		><%= i %></a>
 <% } %>
 <% if(food.hasNextPage) { %>
-	<a href="/<%=topic%>?page=<%= food.page + 1 %>">Next</a>
+	<a href="<%=paginatedUrl%>page=<%= food.page + 1 %>">Next</a>
 <% } %>
 </div>
 

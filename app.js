@@ -46,6 +46,7 @@ app.use(function(req,res,next){
 	res.locals.error = req.flash("error");
 	res.locals.message = req.flash("success");
 	res.locals.navclass = "default";
+	res.locals.paginatedUrl = req.originalUrl.replace(/(\?|\&)page=\d+/g, '') + "?"
 	next();
 });
 
