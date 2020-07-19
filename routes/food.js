@@ -27,30 +27,6 @@ cloudinary.config({
 	
 
 
-router.get("/wait",function(req,res){
-	if (req.query.search){
-		const regex = new RegExp(escapeRegex(req.query.search),"gi");
-		Food.find({title : regex} ,function(err,searchFood){
-			if(err || !searchFood.length){
-                req.flash('error', 'No Food matched your search. Please try again.');
-                res.redirect("back");
-			}else{
-				res.render("food/showcase",{topic :"search result for : "+ req.query.search})
-			}
-		})
-	}else
-	// req.user    //contains all the information about logged in user
-	Food.find({},function(err,allFood){
-		if(err){
-			console.log(err);
-			} else{
-				    res.locals.navclass = "home-nav-color";
-				    res.render("food/index",{food: allFood, currentUser : req.user});  //allCampground is accesing the database 
-                  }
-	})
-    
-})
-
 router.get("/",async function(req,res){
 	if (req.query.search){
 		const regex = new RegExp(escapeRegex(req.query.search),"gi");
@@ -71,14 +47,15 @@ router.get("/",async function(req,res){
 		
 	}
 	else{
-		Food.find({},function(err,allFood){
-		if(err){
-			console.log(err);
-			} else{
-				    res.locals.navclass = "home-nav-color";
-				    res.render("food/index",{food: allFood, currentUser : req.user});  //allCampground is accesing the database 
-                  }
-	})
+			try{
+				let food = await Food.find({});
+				res.locals.navclass = "home-nav-color";
+				res.render("food/index",{food, currentUser : req.user});  //allCampground is accesing the database 
+			}
+			catch(err){
+				req.flash("error",err.message);
+				return res.redirect("back");
+			}
 		
 	}
 })
