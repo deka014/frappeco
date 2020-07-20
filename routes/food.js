@@ -76,13 +76,13 @@ router.post("/save",upload.single('file'),function(req,res){
 router.post("/",function(req,res){ //here the campgrounds is accesed from form ACTION  with post method 
 	var title = req.body.title;
 	var image1 = req.body.image1;
-	var image2 = req.body.image2;
+	var category = req.body.category;
 	var desc = req.body.description;
 	var author = {
 		id: req.user._id,
 		username: req.user.username
 	}
-	var newFood = {title: title , image1: image1, image2: image2 , description: desc, author:author}
+	var newFood = {title: title , image1: image1, category: category , description: desc, author:author}
 	// campgrounds.push(newCampground);
 	Food.create(newFood,function(err,newlyCreated){
 		if(err){
@@ -103,7 +103,7 @@ router.post("/",function(req,res){ //here the campgrounds is accesed from form A
 // })
 
 router.get("/travel",function(req,res){
-	Food.paginate({}, {
+	Food.paginate({category : "travel" }, {
 				 		 page: req.query.page || 1,
 				  		 limit: 1
 					   },function(err,allFood){

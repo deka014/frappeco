@@ -6,17 +6,20 @@
 </h1>
   <div class="pt-3">
 	  <form action="/" method="POST">
-		  <div class="form-group">
+		  <label>Title</label>
+		  <div class="form-group m-auto pb-3">
 	<input class="form-control"type="text" name="title" placeholder="Title">
 		  </div>
-		  	   <div class="form-group">
+		  	   <div class="form-group m-auto pb-4">
+			<label>Thumbnail</label>
 	<input class="form-control"type="text" name="image1" placeholder="First Image">
 		  </div>
 		  <!-- <div class="form-group">
 	<input class="form-control"type="text" name="image2" placeholder="Second Image">
 		  </div>   -->
-		    <div class="form-group row m-0">
-		<div class="col-md-9 p-0 "style="border: 1px solid black">
+		  <label>Page Content</label>
+		    <div class="form-group row m-0 justify-content-center">
+		<div class="col-md-8 p-0 " style="border: 1px solid black">
 			<textarea name="description" id="summernote"></textarea>
 					<div id="overlay">
 	<div class="spinner">
@@ -24,8 +27,18 @@
 	</div>
 </div>
 		</div>
+			
 		</div>  
-			  <div class="form-group">
+		<div class="mb-3">
+            <label>Category</label>
+            <select class="custom-select d-block w-100" name="category" required>
+              <option value="">Choose...</option>
+              <option value="travel">Travel</option>
+			  <option value="eat">Eat</option>
+			  <option value="drink">Drink</option>
+            </select>
+          </div>
+			  <div class="form-group mt-2">
 	<button class="btn btn-lg btn-primary btn-block ">
 		submit
 	</button>
