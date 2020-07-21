@@ -6,6 +6,7 @@ flash 		  = require("connect-flash"),
 passport 	  = require("passport"),
 LocalStrategy = require("passport-local"),
 methodOverride= require("method-override"),
+faker =  require("faker"),
 //data base 
 // Food	 	  	  = require("./models/food"),
 // Comment 	  	  = require("./models/comment"),
@@ -21,6 +22,25 @@ mongoose.set("useUnifiedTopology", true);
 mongoose.connect("mongodb://localhost/fblog",{ useNewUrlParser: true });
 // mongoose.connect("mongodb+srv://deepjyotideka:hello@123@yelpcamp-zfidh.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
 
+//  async function seedPosts() {
+//  	await Food.remove({});
+//  	for(const i of new Array(30)) {
+//  			const post = {		
+//  				title: faker.lorem.word(),
+// 				image1: faker.image.image(),
+// 				category: 'travel',
+//  				description: faker.lorem.text(),
+//  				author: {
+//  			    '_id' : '5bb27cd1f986d278582aa58c',
+//  			    'username' : 'ron'
+//  				}
+//  			}
+//  			await Food.create(post);
+//  	}
+//  	console.log('40 new posts created');
+//  }
+
+// seedPosts();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine" , "ejs");

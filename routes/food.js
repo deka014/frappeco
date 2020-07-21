@@ -32,7 +32,7 @@ router.get("/",async function(req,res){
 		const regex = new RegExp(escapeRegex(req.query.search),"gi");
 		let food = await Food.paginate({title : regex}, {
 			page: req.query.page || 1,
-			limit: 1,
+			limit: 12,
 			sort: '-_id'
 		});
 		food.page = Number(food.page);
@@ -105,7 +105,7 @@ router.post("/",function(req,res){ //here the campgrounds is accesed from form A
 router.get("/travel",function(req,res){
 	Food.paginate({category : "travel" }, {
 				 		 page: req.query.page || 1,
-				  		 limit: 1
+				  		 limit: 12
 					   },function(err,allFood){
 			if(err){
 			console.log(err);
@@ -119,7 +119,7 @@ router.get("/travel",function(req,res){
 router.get("/drink",function(req,res){
 		Food.paginate({category : "drink" }, {
 				 		 page: req.query.page || 1,
-				  		 limit: 1
+				  		 limit: 12
 					   },function(err,allFood){
 			if(err){
 			console.log(err);
@@ -132,9 +132,9 @@ router.get("/drink",function(req,res){
 })
 
 router.get("/eat",function(req,res){
-		Food.paginate({ }, {
+		Food.paginate({category: "eat"}, {
 				 		 page: req.query.page || 1,
-				  		 limit: 3,
+				  		 limit: 12,
 						 sort: '-_id'	
 					   },function(err,allFood){
 			if(err){
