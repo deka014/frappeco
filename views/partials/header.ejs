@@ -110,4 +110,16 @@
     </div>
   </nav>
 	
+	<!-- empty error is true so error.length is used -->
+	<% if(error && error.length > 0){ %>
+	<div class="alert alert-danger" style="margin: 79px 0 -48px 0 ">
+		<%= error %>
+	</div>
+		<%}%>
 	
+			
+	<% if(message && message.length > 0){ %>
+	<div class="alert alert-success" style="margin: 79px 0 -48px 0 ">
+		<%= message %>
+	</div>
+		<%}%>
