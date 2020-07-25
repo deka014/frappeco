@@ -1,12 +1,12 @@
 var express = require("express"),
 	router = express.Router({mergeParams: true}),
 	Food = require("../models/food"),
-	Comment  = require("../models/comment");
-	// middlewar; = require("../middleware") ; 
+	Comment  = require("../models/comment"),
+	middleware = require("../middleware") ; 
 //if the name is index of any file then it takes the index special name 
 
 //comment routes
-router.get("/new",function(req,res){
+router.get("/new",middleware.isLoggedIn,function(req,res){
 	Food.findById(req.params.id,function(err,item){
 		if(err || !item){
 			req.flash("error","Not Found");
@@ -18,7 +18,7 @@ router.get("/new",function(req,res){
 	
 })
 //post comments
-router.post("/",function(req,res){    //middle ware in post secures it more
+router.post("/",middleware.isLoggedIn,function(req,res){    //middle ware in post secures it more
 	Food.findById(req.params.id,function(err,item){
 		if(err){
 			res.redirect("/")
@@ -43,24 +43,24 @@ router.post("/",function(req,res){    //middle ware in post secures it more
 	})
 })
 //comment edit
-// router.get("/:comment_id/edit",function(req,res){
-// 	Campground.findById(req.params.id,function(err,foundCampground){
-// 		if(err || !foundCampground){
-// 			req.flash("error", "No Campground Found")
-// 			res.redirect("back")
-// 		}else{
-// 			Comment.findById(req.params.comment_id,function(err,foundComment){
-// 					 if (err){
-// 					res.send(err)
-// 	}else {
-// 		res.render("comments/edit", {campground_id : req.params.id, comment: foundComment})
+router.get("/:comment_id/edit",function(req,res){
+	Food.findById(req.params.id,function(err,foundfood){
+		if(err || !foundFood){
+			req.flash("error", "No Food Found")
+			res.redirect("back")
+		}else{
+			Comment.findById(req.params.comment_id,function(err,foundComment){
+					 if (err){
+					res.send(err)
+	}else {
+		res.render("comments/edit", {food_id : req.params.id, comment: foundComment})
 		
-// 	}
-// 					 })
-// 		}
-// 	})
+	}
+					 })
+		}
+	})
 	
-// })
+})
 
 // //coment update 
 // router.put("/:comment_id",function(req,res){
@@ -68,21 +68,22 @@ router.post("/",function(req,res){    //middle ware in post secures it more
 // 		if(err){
 // 			res.redirect("back")
 // 		}else{
-// 			res.redirect("/campgrounds/"+req.params.id)
+// 			res.redirect("/foods/"+req.params.id)
 // 		}
 // 	})
 // })
-// //comment destroy 
-// router.delete("/:comment_id",function(req,res){
-// 	Comment.findByIdAndRemove(req.params.comment_id,function(err){
-// 		if(err){
-// 			res.redirect("back")
-// 		}else{
-// 			req.flash("success", "Comment Deleted")
-// 			res.redirect("/campgrounds/" + req.params.id)
-// 		}
-// 	})
-// })
+
+//comment destroy 
+router.delete("/:comment_id",middleware.checkCommentOwnership,function(req,res){
+	Comment.findByIdAndRemove(req.params.comment_id,function(err){
+		if(err){
+			res.redirect("back")
+		}else{
+			req.flash("success", "Comment Deleted")
+			res.redirect("/" + req.params.id)
+		}
+	})
+})
 
 
 //middleware

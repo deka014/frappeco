@@ -1,13 +1,13 @@
 var express = require("express"),
 	router = express.Router(),
-	Food = require("../models/food");
-	// middleware = require("../middleware/index"); 
+	Food = require("../models/food"),
+	middleware = require("../middleware/index"); 
 //if the name is index of any file then it takes the index special name 
 var multer = require('multer');
 var storage = multer.diskStorage({
-  filename: function(req, file, callback) {
+  	filename: function(req, file, callback) {
     callback(null, Date.now() + file.originalname);
-  }
+  	}
 });
 var imageFilter = function (req, file, cb) {
     // accept image files only
@@ -60,7 +60,7 @@ router.get("/",async function(req,res){
 	}
 })
 
-router.get("/new",function(req,res){
+router.get("/new",middleware.isLoggedIn,function(req,res){
     res.render("food/new"); 
 })
 
@@ -73,7 +73,7 @@ router.post("/save",upload.single('file'),function(req,res){
 })
 })
 
-router.post("/",function(req,res){ //here the campgrounds is accesed from form ACTION  with post method 
+router.post("/",middleware.isLoggedIn,function(req,res){ //here the campgrounds is accesed from form ACTION  with post method 
 	var title = req.body.title;
 	var image1 = req.body.image1;
 	var category = req.body.category;
@@ -161,7 +161,7 @@ router.get("/:id",function(req,res){
 
 
 // edit food
-router.get("/:id/edit",function(req,res){
+router.get("/:id/edit",middleware.checkFoodOwnership,function(req,res){
 	//is user logged in
 			Food.findById(req.params.id,function(err,foundfood){
 			res.render("food/edit",{food: foundfood})
@@ -171,7 +171,7 @@ router.get("/:id/edit",function(req,res){
 
 
 //update food
-router.put("/:id",function(req,res){
+router.put("/:id",middleware.checkFoodOwnership,function(req,res){
 	//find and update the correct campground
 	Food.findByIdAndUpdate(req.params.id,req.body.food,function(err, updatedfood){
 		if(err){
@@ -184,7 +184,7 @@ router.put("/:id",function(req,res){
 
 //destroy food 
 
-router.delete("/:id",function(req,res){
+router.delete("/:id",middleware.checkFoodOwnership,function(req,res){
 			Food.findByIdAndRemove(req.params.id,function(err){
 				if(err){
 					res.redirect("/");
