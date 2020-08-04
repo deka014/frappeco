@@ -10,7 +10,7 @@ $(document).ready(function() {
 	
 	
     $('#summernote').summernote({
-        height: 590,   
+        height: 400,   
         focus: true,
 		toolbar: [
   ['style', ['style']],
