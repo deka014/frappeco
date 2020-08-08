@@ -82,7 +82,8 @@ router.post("/",middleware.isLoggedIn,function(req,res){ //here the campgrounds 
 		id: req.user._id,
 		username: req.user.username
 	}
-	var newFood = {title: title , image1: image1, category: category , description: desc, author:author}
+	var tags = req.body.tagOutput
+	var newFood = {title: title , image1: image1, category: category , description: desc, author:author ,tags : tags}
 	// campgrounds.push(newCampground);
 	Food.create(newFood,function(err,newlyCreated){
 		if(err){

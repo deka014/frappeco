@@ -8,6 +8,7 @@ $(document).ready(function() {
         wrapperTags = $('.tags .wrapper-tags'),
         viewTags    = $('.tags .wrapper-tags .view-tags'),
         inputTag    = $('.tags .wrapper-tags .input-tag'),
+	    tagOutput = $("#tagOutput"), 
         btnAddTags  = $('.tags .add-tags'),
         alertErrorInAdd     = $('.show-all-tags .alert-danger'),
         showTagsWhenResult  = $('.show-all-tags .show-tags'),
@@ -98,7 +99,6 @@ $(document).ready(function() {
             showCountCharactersTag.removeClass('max');
         }
     });
-    
     var numRepaierRemoveTag = 1;
     inputTag.on('keydown', function (e) { numRepaierRemoveTag = $(this).val() == '' ? 0 : 1; });
         
@@ -143,6 +143,7 @@ $(document).ready(function() {
                     addTag(currentVal);
                     showCountCharactersTag.find('span').html(maxCharactersLengthTag);
                     showCountTags.find('span').html(maxLengthTags - tags.length);
+					tagOutput.val(tags);
                 }
             }
             // remove tag when press on delete or backspace    
@@ -151,6 +152,7 @@ $(document).ready(function() {
                 var lastTag = tags[tags.length - 1];
                 removeTag(lastTag);
                 inputTag.val(lastTag);
+				tagOutput.val(tags);
             }
         }
     });
@@ -160,6 +162,7 @@ $(document).ready(function() {
     viewTags.on('click', '.tag i', function (e) {
         var textTag = $(this).parent().attr('data-tag');
         removeTag(textTag, 'slideLeft');
+		tagOutput.val(tags);
     });
     
     // add Focus on input when click anything in wrapper tags
@@ -176,4 +179,7 @@ $(document).ready(function() {
     }).blur(function () {
         wrapperTags.removeClass('focus');
     });
+	
+	
+	
 })

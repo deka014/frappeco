@@ -5,6 +5,7 @@ var foodSchema = new mongoose.Schema({
 	title: String,
 	image1: String,
 	category: String,
+	tags : [],
 	description: String,
 	author : {
 		id : {
