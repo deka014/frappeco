@@ -1,127 +1,87 @@
-<!doctype html>
+				
+		
+		<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	 <title>GFB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1.0, user-scalable=no" />
 
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 	crossorigin="anonymous"> -->
-	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/7601452840.js" crossorigin="anonymous"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet"> 
-	<link rel="stylesheet" href="/stylesheets/main.css"><!--  no need to add public because static command is running -->
-	 <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-	  <link rel="stylesheet" href="/stylesheets/landing.css">
-	  <link rel="stylesheet" href="/stylesheets/showcase.css">
-	  <link rel="stylesheet" href="/stylesheets/profile.css">
+  <!-- Google Fonts -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Candal&family=Inter:wght@300&family=Nunito&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- custom styling -->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <link rel="stylesheet" href="/stylesheets/showcase.css">
 	  <link rel="stylesheet" href="/stylesheets/originate.css">
-     
-  </head>
-	
-	<body>
-	<!-- <nav class="navbar navbar-light bg-primary navbar-expand-sm pt-0" role="navigation">
-	<div class="container">
-       <div class="navbar-header mt-2">
-		   		<a class="navbar-brand p-0" href="/">
-				<img src="https://www.graphicsprings.com/filestorage/stencils/f93ce9d20babc6436d34ddc758b5d73b.png?width=500&height=500" height ="60" width="60" alt="logo">
-				Guwahati Foodie
-		   		</a>
-	   </div>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2">
-    		<span class="navbar-toggler-icon"></span>
-  		</button>
-		<div class = "collapse navbar-collapse" id="navbar-list-2">
-		  <ul class=" navbar-nav ml-auto">
-			<%  if(!currentUser){ %>
-			   <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
-			   <li class="nav-item"><a href="/login" class="nav-link" id="link">Login</a></li>
-			   <li class="nav-item"><a href="/register" class="nav-link">Sign Up</a></li>
-			<%  }else{   %>
-			   <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
-			   <li class="nav-item"><a href="#"class="nav-link">Signed In as <%= currentUser.username%>						</a></li>
-			   <li class="nav-item"><a href="/logout"class="nav-link">Log Out</a></li>
-			   <% } %>
-		   </ul>
-		</div>
-		</div>
-</nav> -->
-    
-	<nav class="navbar navstyle <%= navclass %> navbar-trans navbar-expand-md fixed-top " id="mainNav">
-    <div class="container" id="nav-menu">
-		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-		<span></span>
-		<span></span>
-      </button>
-      <a class="navbar-brand" href="/">Robust Foodie</a>
-	 <form class="ml-auto navbar-form order-md-2" action="/" method="GET">
-		 <span id="search-menu" class="menu-item last">
-			 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-</svg>
-			 <input id="searchfield" type="text" placeholder="Search" aria-label="Search" name="search">
-		</span>
-	</form>
-      
-      <div class="collapse navbar-collapse order-md-1" id="navbarDefault">
-        <ul class="navbar-nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/eat">Eat</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/drink">Drink</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/travel">Travel</a>
-          </li>
-		  <%  if(!currentUser){ %>
-		  <li class="nav-item">
-            <a class="nav-link" href="/login">Log In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="log_in" href="/register">Register</a>
-          </li>
-		  <%  }else{   %>
-		 <li class="nav-item">
-            <a class="nav-link" href="#">Signed In as <%= currentUser.username%></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="log_in" href="/logout">Logout</a>
-          </li>
-		 <% } %>
-			 <!-- <li class="nav-item">
-				 <form class="form-inline ml-auto" action="/" method="GET">
-      <div class="md-form my-0">
-        <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search">
-		  <button type="submit">
-			  Go
-		  </button>
-      </div>
-			  </form>
-			</li> -->
-	
-        </ul>
-	
-      </div>
+	  
+
+  <title>fraPpeco</title>
+  <link rel="icon" href="favicon.png">
+</head>
+
+
+<body>
+  <header class="header ">
+    <div class="logo">
+      <h1 class="logo-text"> <a href="/"><span>fra</span>Ppeco</a> </h1>
     </div>
-  </nav>
+    <i class="fa fa-bars menu-toggle"></i>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#foot">Contact Us</a></li>
+      <!-- <li><a href="#">Sign Up</a></li>
+      <li><a href="#">Login</a></li> -->
+	  <%  if(!currentUser){ %>
+		<li><a href="/login">Login</a></li>
+		<li><a href="/register">Sign Up</a></li>
+	<%  }else{   %>
+	  <li>
+        <a href="#">
+          <i class="fa fa-user"></i> Ron Deka
+          <i class="fa fa-chevron-down" style="font-size: .8rem;"></i>
+        </a>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="/log" class="logout">Logout</a></li>
+        </ul>
+      </li>
+	<%  } %>
+    </ul>
+  </header>
 	
 	<!-- empty error is true so error.length is used -->
 	<% if(error && error.length > 0){ %>
-	<div class="alert alert-danger" style="margin: 79px 0 -48px 0 ">
+	<div class="alert alert-danger m-3">
 		<%= error %>
 	</div>
 		<%}%>
 	
 			
 	<% if(message && message.length > 0){ %>
-	<div class="alert alert-success" style="margin: 79px 0 -48px 0 ">
+	<div class="alert alert-success m-3" style="margin: 79px 0 -48px 0 ">
 		<%= message %>
 	</div>
 		<%}%>
+	
+<div class="searchbar">
+
+
+  <form class="topsearchbar" action="/" method="GET">
+    <input id="searchfield" type="text" class="topStext" name="search" placeholder="search from categories..." aria-label="Search">
+	<!-- <input id="searchfield" type="text" placeholder="Search" aria-label="Search" name="search"> -->
+    <input type="submit" class="topSsubmit" name="submit" value="search">
+
+  </form>
+
+</div>
+	
+	

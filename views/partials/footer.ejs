@@ -1,4 +1,3 @@
-
 <div id="mybutton">
 <a class="plus" href="/new"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
@@ -7,72 +6,78 @@
 </svg></a>
 </div>	
 
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+ <!-- footer -->
+  <div class="footer" id="foot">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h1 class="logo-text"><span>fra</span>Ppeco</h1>
+        <p>fraPpeco is a food blog by young and ambitious food enthusiast from Guwahati, serving their unique taste. </p>
+        <div class="contact">
+          <span><i class="fas fa-phone"></i>&nbsp; +91-9613497523</span>
+          <span><i class="fas fa-envelope"></i>&nbsp; frappecoa@gmail.com</span>
+        </div>
+        <div class="socials">
+          <a href="https://www.facebook.com/The-robust-foodie-101316488016636/"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/frappeco/?hl=en"><i class="fab fa-instagram"></i></a>
+          <a href="#mail"><i class="fas fa-envelope"></i></a>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <br>
+        <ul>
+          <a href="team.html">
+            <li >Team</li>
+          </a>
+          <a href="#">
+            <li >Privacy Policy</li>
+          </a>
+          <a href="#">
+            <li >Terms and Conditions</li>
+          </a>
+        </ul>
+      </div>
+      <div class="footer-section contact-form">
+        <h2>Contact us</h2>
+        <br>
+        <form action="mailto:frappecoa@gmail.com" method="post" enctype="text/plain" id="mail">
+          <input type="email" name="your email"  class="text-input contact-input" placeholder="Your email..." >
+          <textarea rows="4" name="Message" class="text-input contact-input" placeholder="Your message...." ></textarea>
+          <button type="submit" class="btn btn-big contact-btn"><i class="fas fa-envelope"></i> Send</button>
 
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+        </form>
+      </div>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
-	<script src="/js/summernote-bs4.js"></script>
+    </div>
 
-    <script>
-		$(function () {
-  $(document).scroll(function () {
-    var $nav = $(".navstyle");
-    $nav.toggleClass('navbar-reduce', $(this).scrollTop() > $nav.height());
- 	 });
-		});
-	</script>
-   
+    <div class="footer-bottom" >
+      &copy; fraPpeco | All rights reserved.
+    </div>
+  </div>
 
-	<script>
-		  if ($('.text-slider').length == 1) {
-    var content  = $('.text-slider-items').text();
-    var typed = new Typed('.text-slider', {
-      strings: content.split(','),
-      typeSpeed: 80,
-      loop: true,
-      backDelay: 1100,
-      backSpeed: 30
+
+  <!-- footer -->
+
+  <!-- xxxxxpage Wrapperxxxxx -->
+  <!-- Jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <!-- Slick Caraousel -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset:100,
+      duration:500
     });
-  }
-   </script>
-
-
-   <script>
-
-	 $("#sign,#forget").click(function(){
-	 $("div.forget").toggleClass("slide-up")
-	 $("div.sign").toggleClass("slide-up")
-	 })	   
-   </script>
-
-<script>
-$(document).mouseup(function (e)
-{
-    var container = $("#search-menu");
-
-    if (!container.is(e.target) // if the target of the click isn't the container...
-        && container.has(e.target).length === 0) // ... nor a descendant of the container
-    {
-        container.removeClass("active");
-    }
-});
-
-$("#search-menu").click(function() {
-  $( this ).addClass("active");
-  document.getElementById("searchfield").focus();
-});
-</script>
-<!-- <p>
-	Trademark 2020
-</p> -->
-<script src="https://kit.fontawesome.com/53442305c9.js" crossorigin="anonymous"></script>
-
-
-
+  </script>
+  <!-- JavaScript -->
+  <script src="/js/index.js" charset="utf-8"></script>
+<script src="/js/summernote-bs4.js"></script>
 </body>
+
 </html>

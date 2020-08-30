@@ -49,8 +49,10 @@ router.get("/",async function(req,res){
 	else{
 			try{
 				let food = await Food.find({});
+				let random = Math.floor(Math.random() * 25);
+				console.log(random)
 				res.locals.navclass = "home-nav-color";
-				res.render("food/index",{food});  //allCampground is accesing the database 
+				res.render("food/index",{food , random});  //allCampground is accesing the database 
 			}
 			catch(err){
 				req.flash("error",err.message);
@@ -112,7 +114,7 @@ router.get("/travel",function(req,res){
 			console.log(err);
 			} else{
 				
-			res.render("food/showcase",{food: allFood, topic:"travel"});  //allCampground is accesing the database 
+			res.render("food/showcase",{food: allFood, topic:"Recipes"});  //allCampground is accesing the database 
                   }
 	})
 })
@@ -126,7 +128,7 @@ router.get("/drink",function(req,res){
 			console.log(err);
 			} else{
 				
-			res.render("food/showcase",{food: allFood, topic:"Drink"});  //allCampground is accesing the database 
+			res.render("food/showcase",{food: allFood, topic:"Food Blogs"});  //allCampground is accesing the database 
                   }
 	})
 	
@@ -142,7 +144,7 @@ router.get("/eat",function(req,res){
 			console.log(err);
 			} else{
 				
-			res.render("food/showcase",{food: allFood, topic:"Eat"});  //allCampground is accesing the database 
+			res.render("food/showcase",{food: allFood, topic:"Food Facts"});  //allCampground is accesing the database 
                   }
 	})
 })

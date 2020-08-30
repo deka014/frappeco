@@ -1,70 +1,335 @@
 <%- include ("../partials/header")%>
-
-
-	
-<!-- <header class="jumbotron">	
-	<div class = "container">
-	<h1>Guwahati Food Blog</h1>
-	<p>View our Recipes</p>
-	<p>
-	   <a class="btn btn-primary btn-lg" href="/new"> Add New Blog </a>	
-	</p>
-	</div>
-	</header> -->
-	
-	<div id="home" class="intro route bg-image lift" style="background-image: url(https://images.wallpaperscraft.com/image/lemon_glass_water_spray_106738_1920x1080.jpg)">
-	<div class="overlay-itro"></div>
-    <div class="intro-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-         <a href="/"> <h1 class="intro-title mb-4">Join Our Community</h1> </a> 
-          <p class="intro-subtitle"><span class="text-slider-items">Eat,Drink,Events,Travel</span><strong class="text-slider"></strong></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
-        </div>
-      </div>
-    </div>
-   </div>
-	
-	<div class = "container " style= "max-width:1150px;">
-	<div class = "row" style="display:flex; flex-wrap: wrap;" >
-		<%food.forEach(function(item){%>
-        <div class=" col-sm-12 col-md-6 col-lg-4">
-        <div class="card">
-		<div class="thumbnail">
-        <img class="card-img imageZoom" src="<%=item.image1 %>" alt="Image">
-		</div>
-        <!-- <div class="card-img-overlay">
-          <a href="/<%=item.id%>" class="btn btn-light btn-sm">Cooking</a>
-        </div> -->
-        <div class="card-body">
-          <h4 class="card-title"><%= item["title"]%></h4>
-          <small class="text-muted cat">
-            <i class="far fa-clock text-info"></i> 30 minutes
-            <i class="fas fa-users text-info"></i> 4 portions
-          </small>
-          <p class="card-text">I love quick, simple pasta dishes, and this is one of my favorite.</p>
-		  <div class="">
-			  <a href="/<%=item.id%>" class="btn btn-info">Read Recipe</a>
-		  </div>
-        <!-- <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-          <div class="views">Oct 20, 12:45PM
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+      <div class="cover">
+        <div class="feature">
+          <img src="<%=food[10].image1%>" alt="">
+          <div class="title_filter"></div>
+          <div class="feature_title">
+            <div class="date">
+              <div class="date_filter"></div>
+              <h3>14<span>Jun</span></h3>
+            </div>
+            <p>by <a href="#">Deep</a><span></span><a>Food Blogs</a></p>
+            <h1><a href="/<%=food[10].id%>"><%=food[10].title%></a> </h1>
           </div>
-          <div class="stats">
-           	<i class="far fa-eye"></i> 1347
-            <i class="far fa-comment"></i> 12
-          </div> -->
-           
+
+        </div>
+        <div class="feature">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+          <div class="title_filter"></div>
+          <div class="feature_title">
+            <div class="date">
+              <div class="date_filter"></div>
+              <h3>16<span>Jul</span></h3>
+            </div>
+			  <p>by <a href="#">Jason</a><span></span><a>Food Facts</a></p>
+            <h1><a href="single.html">Spaghetti Mozerella</a> </h1>
+          </div>
+        </div>
+        <div class="feature" >
+          <img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+          <div class="title_filter"></div>
+          <div class="feature_title">
+            <div class="date">
+              <div class="date_filter"></div>
+              <h3>23<span>Dec</span></h3>
+            </div>
+            <p>by <a href="#">Ron</a><span></span>Blogging Tips</p>
+            <h1><a href="single.html">Chowww </a></h1>
+          </div>
+        </div>
+        <div class="feature">
+          <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+          <div class="title_filter"></div>
+          <div class="feature_title">
+            <div class="date">
+              <div class="date_filter"></div>
+              <h3>24<span>Jun</span></h3>
+            </div>
+            <p>by <a href="#">Beast</a><span></span>Food Stories</p>
+            <h1><a href="single.html">Burger Mozerella </a></h1>
+          </div>
         </div>
       </div>
-    </div>
- 
 
-		  <%});%>
-	</div>
+      <!-- xxxx cover page xxxx -->
+
+
+      <!-- featured post section -->
+      <div class="featured" >
+        <div class="sidebar1" >
+          <div class="about" data-aos="fade-right">
+            <h2 class="section-title" id="about">About <span>Us</span> </h2>
+            <section class="nocolour">
+            <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+            <p class="uppercase">Hello everyone, welcome to our blog!</p>
+            <p>Starting from food affairs to exotic and hilarious food experiences and stories along with scrumptious recipes, frappeco is brimming with all of such food related blogs providing a platform to everyone, starting from gourmets and connoisseur to bibliophiles to share their relishing memories of food.</p>
+      </section>
+          </div>
+        </div>
+        <div class="featured_posts">
+          <h2 class="section-title">Featured Posts</h2>
+          <div class="post1 nocolour">
+
+            <div class="calendar1" data-aos="fade-right">
+              <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="">
+
+            </div>
+            <div class="dish">
+              <h6 class="light-black">Blogging Tips</h6>
+              <h3><a href="single.html">Steamed alaska king crab</a></h3>
+              <!-- MAx 10 word paragraph👇 -->
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias </p>
+            </div>
+
+          </div>
+          <div class="post1 nocolour">
+            <div class="calendar1" data-aos="fade-left">
+              <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+            </div>
+            <div class="dish">
+              <h6 class="light-black">Food Facts</h6>
+              <h3><a href="single.html"> Steamed Momos</a></h3>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, maxime?</p>
+
+            </div>
+          </div>
+          <div class="post1 nocolour">
+            <div class="calendar1"data-aos="fade-right">
+              <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+            </div>
+            <div class="dish">
+              <h6 class="light-black">Food blogs</h6>
+              <h3> <a href="single.html">Roasted Chicken</a></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, obcaecati!</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="rightsidebar" data-aos="fade-left">
+          <h2 class="section-title">Facts </h2>
+          <div class="about">
+            <a href="single.html"><img src="https://images.unsplash.com/photo-1532980400857-e8d9d275d858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="width:100%;" ,height="80%;"></a>
+          <section class="fact nocolour">
+
+          <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, recusandae."</p>
+
+        </section>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Post Silder -->
+    <div class="post-slider">
+      <h1 class="slider-title">Popular Posts</h1>
+      <i class="fas fa-chevron-left prev"></i>
+      <i class="fas fa-chevron-right next"></i>
+      <div class="post-wrapper">
+        <div class="post">
+          <img src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="" class="slider-image">
+          <div class="post-info">
+            <h4 class="light-black">
+              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
+            </h4>
+            <i class="far fa-user">Ron Deka</i>
+            &nbsp;
+            <i class="far fa-calendar">10 Aug,2020</i>
+          </div>
+        </div>
+        <div class="post">
+          <img src="https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80" alt="" class="slider-image">
+          <div class="post-info">
+            <h4 class="light-black">
+              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
+            </h4>
+            <i class="far fa-user">Ron Deka</i>
+            &nbsp;
+            <i class="far fa-calendar">10 Aug,2020</i>
+          </div>
+        </div>
+        <div class="post">
+          <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="" class="slider-image">
+          <div class="post-info">
+            <h4 class="light-black">
+              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
+            </h4>
+            <i class="far fa-user">Ron Deka</i>
+            &nbsp;
+            <i class="far fa-calendar">10 Aug,2020</i>
+          </div>
+        </div>
+        <div class="post">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1035&q=80" alt="" class="slider-image">
+          <div class="post-info">
+            <h4 class="light-black">
+              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
+            </h4>
+            <i class="far fa-user">Ron Deka</i>
+            &nbsp;
+            <i class="far fa-calendar">10 Aug,2020</i>
+          </div>
+        </div>
+        <div class="post">
+          <img src="https://images.unsplash.com/photo-1484300681262-5cca666b0954?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" alt="" class="slider-image">
+          <div class="post-info">
+            <h4 class="light-black">
+              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
+            </h4>
+            <i class="far fa-user">Ron Deka</i>
+            &nbsp;
+            <i class="far fa-calendar">10 Aug,2020</i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- xxxxxPost Slider -->
+
+<div class="services ">
+
+  <h1 class="light-black">Our Categories</h1>
+  <div class="cen">
+    <div class="service">
+      <i class="fas fa-utensils" data-aos="fade-right"></i>
+      <h2 class="light-black">Recipes</h2>
+      <p>Share and relish the unique recipes</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-sticky-note" data-aos="fade-left"></i>
+      <h2 class="light-black">Food Blogs</h2>
+      <p>All food related thoughts via blogs.</p>
+    </div>
+    <div class="service">
+      <i class="far fa-question-circle" data-aos="fade-right"></i>
+      <h2 class="light-black">Food Facts</h2>
+      <p>The unknown facts to the known world</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-exclamation" data-aos="fade-left"></i>
+      <h2 class="light-black">Blogging Tips</h2>
+      <p>Providing blogging tips from the renowned bloggers.</p>
+    </div>
+    <div class="service">
+      <i class="far fa-newspaper" data-aos="fade-right"></i>
+      <h2 class="light-black">Food Affairs</h2>
+      <p>The current scenario of the food world.</p>
+    </div>
+    <div class="service">
+      <i class="fas fa-book-open" data-aos="fade-left"></i>
+      <h2 class="light-black">Food Stories</h2>
+      <p>Relish and share scrumptious experiences on food.</p>
+    </div>
+
+  </div>
 </div>
-<hr>
-		
+    <!-- Main content -->
+    <div class="content clearfix">
+      <!-- Main Content -->
+      <div class="main-content">
+        <h1 class="recent-post-title">Recent Posts</h1>
+
+        <!-- post -->
+        <div class="post clearfix" data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="post-image">
+          <div class="post-preview">
+            <h2 class="light-black">
+              <a href="single.html">The best Street food in Town is Yet to come!!!</a></h2>
+            <i class="far fa-user">Rohan Deka</i>
+            &nbsp;
+            <i class="far calendar">10 Aug, 2020</i>
+            <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Suscipit laborum totam ab iusto quis laudantium.</p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+        <div class="post clearfix" data-aos="fade-left">
+          <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="" class="post-image">
+          <div class="post-preview">
+            <h2 class="light-black">
+              <a href="single.html">Easy comfy Dates...</a></h2>
+            <i class="far fa-user">Ashima Verma</i>
+            &nbsp;
+            <i class="far calendar">11 Aug, 2020</i>
+            <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Suscipit laborum totam ab iusto quis laudantium.</p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+        <div class="post clearfix" data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" alt="" class="post-image">
+          <div class="post-preview">
+            <h2 class="light-black">
+              <a href="single.html">My cooking Accidents!😥 </a></h2>
+            <i class="far fa-user">Aakansha</i>
+            &nbsp;
+            <i class="far calendar">11 Aug, 2020</i>
+            <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Suscipit laborum totam ab iusto quis laudantium.</p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+        <div class="post clearfix" data-aos="fade-left">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="" class="post-image">
+          <div class="post-preview">
+            <h2 class="light-black">
+              <a href="single.html">How to cook good food easily?</a></h2>
+            <i class="far fa-user">Anushmita Baruah</i>
+            &nbsp;
+            <i class="far calendar">11 Aug, 2020</i>
+            <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Suscipit laborum totam ab iusto quis laudantium.</p>
+            <a href="single.html" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- sidebar -->
+      <div class="sidebar">
+        <div class="section search">
+          <form action="index.html" method="post">
+            <input type="text" name="search-term" class="text-input" id="search" placeholder="Search ...">
+          </form>
+
+        </div>
+        <div class="section topics">
+          <h2 class="light-black">Category</h2>
+          <ul>
+            <li data-aos="fade-right">
+              <a href="/travel">Recipes</a>
+            </li>
+            <li data-aos="fade-left">
+              <a href="/drink">Food Blogs</a>
+            </li>
+            <li data-aos="fade-right">
+              <a href="/eat">Food Facts</a>
+            </li>
+            <li data-aos="fade-left">
+              <a href="#search">Blogging Tips</a>
+            </li>
+            <li data-aos="fade-right">
+              <a href="#search">Food Affairs</a>
+            </li>
+            <li data-aos="fade-left">
+              <a href="#search">Food Stories</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- content -->
+    </div>
+
+  </div>
+
 <%- include ("../partials/footer")%>
-			
-			
+
+
+
+

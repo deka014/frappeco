@@ -1,0 +1,47 @@
+<%- include ("partials/header")%>
+
+<!-- <h1>
+	SIGN UP
+</h1>
+
+<form action="/register" method= "POST">
+	<input type="text" name="username" placeholder="Unique Username">
+	<input type="email" name="email" placeholder="Email">
+	<input type="password" name="password" placeholder="password">
+	<input type="text" name="invite" placeholder="invitation code">
+	<button>SUBMIT</button>
+</form> -->
+	
+	<div class="gateway d-flex justify-content-center align-items-center mt-5 pt-5 pb-5">
+	<div class="form-structor">
+	<div class="sign">
+		<h2 class="form-title mr-3" id="sign"><span>or</span>Create Account</h2>
+		<form action="/register" method= "POST">
+		<div class="form-holder">
+			<input type="text" class="input" name="username" placeholder=" Unique username">
+			<input type="email" class="input" name="email" placeholder=" Email">
+			<!-- <input type="email" class="input" name="re-email" placeholder=" Confirm Email"> -->
+			<input type="password" class="input" name="password" placeholder=" Password">
+			<input type="text" class="input" name="invite" placeholder=" Invitation Code">
+		</div>
+			<button class="submit-btn">Register</button>
+		</form>
+		
+	</div>
+	<div class="forget slide-up">
+		<div class="center">
+			<h2 class="form-title " id="forget">Terms & Conditions</h2>
+			<form action="/forget" method= "POST">
+			<div class="form-holder">
+					<input type="text" class="input" name="email" placeholder="Enter Your Email">
+			</div>
+			<button class="submit-btn">Log in</button>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+	
+
+
+<%- include ("partials/footer")%>
