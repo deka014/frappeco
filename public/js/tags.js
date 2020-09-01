@@ -3,7 +3,6 @@ $(document).ready(function() {
 // $(function () {
     
     /* Tags function */
-    
     var // all variables
         wrapperTags = $('.tags .wrapper-tags'),
         viewTags    = $('.tags .wrapper-tags .view-tags'),

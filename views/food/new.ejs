@@ -7,22 +7,27 @@
 	Create A New Blog
 </h1>
   <div class="pt-3">
-	  <form action="/" method="POST">
+	  <form action="/" method="POST" enctype="multipart/form-data">
 		 <label>Title</label>
 		  <div class="form-group m-auto pb-3">
-	<input class="form-control"type="text" name="title" placeholder="Title">
+	<input class="form-control"type="text" name="food[title]" placeholder="Title">
 		  </div>
-		  	   <div class="form-group m-auto pb-4">
-			<label>Thumbnail</label>
-	<input class="form-control"type="text" name="image1" placeholder="First Image">
+		  <label>Thumbnail</label>	   
+		  <div class="p-auto mb-4 custom-file">
+	<input class="custom-file-input" type="file" id="image" name="image" accept="image/*" required>
+		<label class="custom-file-label" for="image">Choose file</label>
 		  </div>
+		   <!-- <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div> -->
 		  <!-- <div class="form-group">
 	<input class="form-control"type="text" name="image2" placeholder="Second Image">
 		  </div>   -->
 		  <label>Page Content</label>
 		    <div class="form-group row m-0 justify-content-center">
 		<div class="col-md-8 pl-0 mb-3">
-			<textarea name="description" id="summernote"></textarea>
+			<textarea name="food[description]" id="summernote"></textarea>
 					<div id="overlay">
 	<div class="spinner">
 		<span class="wheel"></span>
@@ -33,7 +38,7 @@
 			<aside class="sidebar sidebar-sticky" style="position:sticky; top:6em ">
 			<div class="form-group">
             <label>Category</label>
-            <select class="custom-select d-block w-100" name="category" required>
+            <select class="custom-select d-block w-100" name="food[category]" required>
               <option value="">Choose...</option>
               <option value="travel">Travel</option>
 			  <option value="eat">Eat</option>
@@ -42,7 +47,7 @@
 			</div>	
 				<div class="form-group">
 			<label>Approx Reading Time (Minutes) </label>
-			<input class="form-control"type="number" name="Price" placeholder="Minutes" min="1" step="1">
+			<input class="form-control"type="number" name="food[Price]" placeholder="Minutes" min="1" step="1">
 		  		</div>
 	
     
@@ -55,7 +60,7 @@
                         <span class="tag" data-tag="fingourment">fingourment<i class="fa fa-close"></i></span>
                         <span class="tag" data-tag="frappeco">frappeco<i class="fa fa-close"></i></span>
                         <input type="text" class="input-tag">
-						<input type="hidden" id="tagOutput" name="tagOutput" value="fingourment,frappeco">
+						<input type="hidden" id="tagOutput" name="food[tagOutput]" value="fingourment,frappeco">
                     </div>
                 </div>
                 
@@ -120,8 +125,8 @@
 	</div>
 	</div>
 	
-<script defer src="js/editor.js" ></script>
-<script defer src="js/tags.js"></script>
+<script defer src="/js/editor.js" ></script>
+<script defer src="/js/tags.js"></script>
 
 <!-- <script defer src="js/summernote-video-attributes.js" ></script> -->
 </div>
