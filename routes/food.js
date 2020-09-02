@@ -31,7 +31,7 @@ cloudinary.config({
 router.get("/",async function(req,res){
 	if (req.query.search){
 		const regex = new RegExp(escapeRegex(req.query.search),"gi");
-		let food = await Food.paginate({title : regex}, {
+		let food = await Food.paginate({tagOutput : regex}, {
 			page: req.query.page || 1,
 			limit: 12,
 			sort: '-_id'
@@ -162,7 +162,7 @@ router.get("/:id",function(req,res){
 			res.redirect("/")
 		} else{
 			console.log(foundfood)
-			res.render("food/show",{food: foundfood});
+			res.render("food/show",{food: foundfood });
 		}
 		
 	})
@@ -172,9 +172,8 @@ router.get("/:id",function(req,res){
 // edit food
 router.get("/:id/edit",middleware.checkFoodOwnership,function(req,res){
 	//is user logged in
-			Food.findById(req.params.id,function(err,foundfood){
-			var tags = foundfood.tagOutput.split(',');	
-			res.render("food/edit",{food: foundfood , tags})
+			Food.findById(req.params.id,function(err,foundfood){	
+			res.render("food/edit",{food: foundfood })
 			
 	});
 });

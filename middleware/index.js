@@ -11,7 +11,7 @@ middlewareObj.checkFoodOwnership = function(req,res,next){
 			res.redirect("/foods")
 		}else{
 		//does user own the food 
-		if (foundFood.author.id.equals(req.user._id)){
+		if (foundFood.author.id.equals(req.user._id) || req.user.isAdmin){
 			next();
 		}else{
 			 req.flash("error", "You Don't Have Permission")
@@ -32,7 +32,7 @@ middlewareObj.checkCommentOwnership = function(req,res,next){
 			res.redirect("back")
 		}else{
 		//does user own the food 
-		if (foundComment.author.id.equals(req.user._id)){
+		if (foundComment.author.id.equals(req.user._id) || req.user.isAdmin){
 			next();
 		}else{
 			req.flash("error", "You Need To Be LoggedIn")

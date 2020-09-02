@@ -76,7 +76,7 @@
 				<div class="card-body p-0" > 
 					<p><%-food.description%></p>
 					<p><em> Submitted By <a href="/profile/<%=food.author.id%>"><%=food.author.username%>						</a></em></p>
-					
+		 <%if(currentUser && food.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin ){%>
 					<a class= "btn btn-xs btn-warning" href="/<%=food._id%>/edit">
 						Edit
 					</a>
@@ -86,7 +86,7 @@
 							Delete
 						</button>
 					</form>
-			
+		<% } %>
 			<div class="Well">
 				<div class="text-right">
 					<a class="btn btn-success"href="/<%=food._id%>/comments/new">Add new Comment </a>
@@ -102,7 +102,7 @@
 						<p>
 							<%= comment.text%> 
 						</p>
-						<%if(1){%>
+				 <%if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin ){%>
 						<div class="ml-auto">
 							<a class= "btn btn-xs btn-warning" 
 						   href="/campgrounds/<%=food._id%>/comments/<%=comment._id%>/edit">
@@ -126,7 +126,7 @@
             </div>
             <div class="media-body">
 				<a href="/profile/5ef534a458a8f61889b0d5fb"><h4 class="media-heading m-0 ">John Doe</h4></a>
-				<%if(1){%>
+				<%if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin ){%>
 						<div class="float-right">
 							<!-- <a class= "btn" 
 						   href="/<%=food._id%>/comments/<%=comment._id%>/edit">
@@ -174,11 +174,10 @@
             <div class="card mb-4">
               <div class="card-body">
                 <h4 class="card-title mb-3">Tags</h4>
-                <a class="btn btn-light btn-sm mb-1" href="page-category.html">Journey</a>
-                <a class="btn btn-light btn-sm mb-1" href="page-category.html">Work</a>
-                <a class="btn btn-light btn-sm mb-1" href="page-category.html">Lifestype</a>
-                <a class="btn btn-light btn-sm mb-1" href="page-category.html">Photography</a>
-                <a class="btn btn-light btn-sm mb-1" href="page-category.html">Food & Drinks</a>
+				 <% food.tagOutput.split(',').forEach(function(tag) { %> 
+					<a class="btn btn-light btn-sm mb-1" href="/?search=<%=tag%>"><%=tag%></a>	  
+				<%  }) %>
+                
               </div>
             </div><!-- /.card -->
             <div class="card mb-4">
