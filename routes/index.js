@@ -25,7 +25,7 @@ router.post("/register",function(req,res){
       return res.render("register", {"error": err.message});  //new way when res.render exist not res.redirect
     }
 		passport.authenticate("local")(req,res,function(){
-		req.flash("success", "Welcome To Guwahati Food Blog" + user.username)
+		req.flash("success", "Welcome To Guwahati Food Blog " + user.username)
         res.redirect("/");
 		})
 	})
