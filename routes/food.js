@@ -53,7 +53,7 @@ router.get("/",async function(req,res){
 				let food = await Food.find({'approach.feature' : true});
 				let popular = await Food.find({'approach.popular ' : true});
 				let random = Math.floor(Math.random() * 25);
-				console.log(random)
+				// console.log(random)
 				// res.locals.navclass = "home-nav-color";
 				res.render("food/index",{food , random});  //allCampground is accesing the database 
 			}

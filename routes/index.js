@@ -57,18 +57,18 @@ router.get("/logout",function(req,res){
 
 //profile 
 
-router.get("/profile/:id",function(req,res){
-	User.findById(req.params.id,function(err,foundUser){
-			if(err || !foundUser){
-			req.flash("error","No Profile Found");
-			res.redirect("/")
-		}
-		else{
-		  	res.render("profile",{foundUser: foundUser})
-		}
-	})
+// router.get("/profile/:id",function(req,res){
+// 	User.findById(req.params.id,function(err,foundUser){
+// 			if(err || !foundUser){
+// 			req.flash("error","No Profile Found");
+// 			res.redirect("/")
+// 		}
+// 		else{
+// 		  	res.render("profile",{foundUser: foundUser})
+// 		}
+// 	})
 		
-})
+// })
 
 router.get("/privacyandpolicy",function(req,res){
 	res.render("privacypolicy")
