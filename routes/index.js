@@ -14,7 +14,7 @@ router.get("/register",function(req,res){
 })
 //handle sign up 
 router.post("/register",function(req,res){
-	if (req.body.invite == "deep123"){
+	if (req.body.invite == "ron123"){
 	var newUser = new User({
 		username :req.body.username, 
 		email : req.body.email
