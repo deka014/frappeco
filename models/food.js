@@ -8,7 +8,7 @@ var foodSchema = new mongoose.Schema({
 	imageId : String,
 	tagOutput : String,
 	approach: { 
-		feature : {type : Boolean , default : true}, 
+		feature : {type : Boolean , default : false}, 
 		popular: {type : Boolean , default : false},
 		recommend: {type : Boolean , default : false} 
 	          },
