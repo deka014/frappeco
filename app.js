@@ -19,8 +19,8 @@ indexRoutes 	 = require("./routes/index");
 mongoose.set("useUnifiedTopology", true); 
 // console.log(process.env.DATABASEURL)  in terminal- export DATABASEURL=mongodb://localhost/yelp_camp
 // var url = process.env.DATABASEURL || "mongodb://localhost/food_blog"
-mongoose.connect("mongodb://localhost/fblog",{ useNewUrlParser: true });
-// mongoose.connect("mongodb+srv://deepjyotideka:hello@123@yelpcamp-zfidh.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/fblog",{ useNewUrlParser: true });
+mongoose.connect("mongodb+srv://rondeka:hello@123@frappeco.k1hqv.mongodb.net/frappeco?retryWrites=true&w=majority", { useNewUrlParser: true });
 
 //  async function seedPosts() {
 //  	await Food.remove({});
