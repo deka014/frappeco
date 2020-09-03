@@ -17,7 +17,7 @@ foodRoutes	 	 = require("./routes/food"),
 indexRoutes 	 = require("./routes/index");
 
 mongoose.set("useUnifiedTopology", true); 
-// console.log(process.env.DATABASEURL)  in terminal DATABASEURL=mongodb://localhost/yelp_camp
+// console.log(process.env.DATABASEURL)  in terminal- export DATABASEURL=mongodb://localhost/yelp_camp
 // var url = process.env.DATABASEURL || "mongodb://localhost/food_blog"
 mongoose.connect("mongodb://localhost/fblog",{ useNewUrlParser: true });
 // mongoose.connect("mongodb+srv://deepjyotideka:hello@123@yelpcamp-zfidh.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true });
@@ -68,7 +68,7 @@ app.use(function(req,res,next){
 	res.locals.currentUser = req.user;// now  i dont need to {add currentUser : req.user} in every step
 	res.locals.error = req.flash("error");
 	res.locals.message = req.flash("success");
-	res.locals.navclass = "default";
+	// res.locals.navclass = "default";
 	res.locals.paginatedUrl = req.originalUrl.replace(/(\?|\&)page=\d+/g, '') + "?"
 	next();
 });

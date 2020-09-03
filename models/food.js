@@ -7,6 +7,11 @@ var foodSchema = new mongoose.Schema({
 	category: String,
 	imageId : String,
 	tagOutput : String,
+	approach: { 
+		feature : {type : Boolean , default : true}, 
+		popular: {type : Boolean , default : false},
+		recommend: {type : Boolean , default : false} 
+	          },
 	description: String,
 	author : {
 		id : {
@@ -15,6 +20,7 @@ var foodSchema = new mongoose.Schema({
 		},
 		username: String
 	},
+	date : String,
 	comments : [
 	   { type : mongoose.Schema.Types.ObjectId,
 	     ref : "Comment"

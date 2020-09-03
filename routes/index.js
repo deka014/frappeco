@@ -70,8 +70,12 @@ router.get("/profile/:id",function(req,res){
 		
 })
 
-router.get("/profile/:id/update",function(req,res){
-	res.render("profile/update")
+router.get("/privacyandpolicy",function(req,res){
+	res.render("privacypolicy")
+})
+
+router.get("/tandc",function(req,res){
+	res.render("tandC")
 })
 
 module.exports = router;

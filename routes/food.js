@@ -1,4 +1,5 @@
 var express = require("express"),
+    moment = require('moment'),
 	router = express.Router(),
 	Food = require("../models/food"),
 	Comment = require("../models/comment"), 
@@ -21,9 +22,9 @@ var imageFilter = function (req, file, cb) {
 var upload = multer({ storage: storage, fileFilter: imageFilter})
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
-  cloud_name: 'ddekacloud', 
-  api_key: 796252967861617, 
-  api_secret: "jzeqZUVUUNU4feMUsBk4CJl4Ya0"
+  cloud_name: 'frappeco', 
+  api_key: 312348958682446, 
+  api_secret: "6lbkwgl7wL5wN_GdJ3ymBHfEoR0"
 });	
 	
 
@@ -49,10 +50,11 @@ router.get("/",async function(req,res){
 	}
 	else{
 			try{
-				let food = await Food.find({});
+				let food = await Food.find({'approach.feature' : true});
+				let popular = await Food.find({'approach.popular ' : true});
 				let random = Math.floor(Math.random() * 25);
 				console.log(random)
-				res.locals.navclass = "home-nav-color";
+				// res.locals.navclass = "home-nav-color";
 				res.render("food/index",{food , random});  //allCampground is accesing the database 
 			}
 			catch(err){
@@ -83,6 +85,7 @@ router.post("/",middleware.isLoggedIn,upload.single('image'),function(req,res){ 
 			req.flash("error",err.messsage)
 		}
     // add cloudinary url for the image to the campground object under image property
+	req.body.food.date = moment().format('LL');
 	req.body.food.image = result.secure_url;
 	//add images public id to campground db 
 	req.body.food.imageId = result.public_id;	
@@ -111,8 +114,8 @@ router.post("/",middleware.isLoggedIn,upload.single('image'),function(req,res){ 
 // 	})
 // })
 
-router.get("/travel",function(req,res){
-	Food.paginate({category : "travel" }, {
+router.get("/recipes",function(req,res){
+	Food.paginate({category : "recipes" }, {
 				 		 page: req.query.page || 1,
 				  		 limit: 12
 					   },function(err,allFood){
@@ -125,8 +128,8 @@ router.get("/travel",function(req,res){
 	})
 })
 
-router.get("/drink",function(req,res){
-		Food.paginate({category : "drink" }, {
+router.get("/food-blogs",function(req,res){
+		Food.paginate({category : "food blogs" }, {
 				 		 page: req.query.page || 1,
 				  		 limit: 12
 					   },function(err,allFood){
@@ -140,8 +143,8 @@ router.get("/drink",function(req,res){
 	
 })
 
-router.get("/eat",function(req,res){
-		Food.paginate({category: "eat"}, {
+router.get("/food-facts",function(req,res){
+		Food.paginate({category: "food facts"}, {
 				 		 page: req.query.page || 1,
 				  		 limit: 12,
 						 sort: '-_id'	
@@ -151,6 +154,51 @@ router.get("/eat",function(req,res){
 			} else{
 				
 			res.render("food/showcase",{food: allFood, topic:"Food Facts"});  //allCampground is accesing the database 
+                  }
+	})
+})
+
+router.get("/blogging-tips",function(req,res){
+		Food.paginate({category: "blogging tips"}, {
+				 		 page: req.query.page || 1,
+				  		 limit: 12,
+						 sort: '-_id'	
+					   },function(err,allFood){
+			if(err){
+			console.log(err);
+			} else{
+				
+			res.render("food/showcase",{food: allFood, topic:"Blogging Tips"});  //allCampground is accesing the database 
+                  }
+	})
+})
+
+router.get("/food-affairs",function(req,res){
+		Food.paginate({category: "food affairs"}, {
+				 		 page: req.query.page || 1,
+				  		 limit: 12,
+						 sort: '-_id'	
+					   },function(err,allFood){
+			if(err){
+			console.log(err);
+			} else{
+				
+			res.render("food/showcase",{food: allFood, topic:"Food Affairs"});  //allCampground is accesing the database 
+                  }
+	})
+})
+
+router.get("/food-stories",function(req,res){
+		Food.paginate({category: "food stories"}, {
+				 		 page: req.query.page || 1,
+				  		 limit: 12,
+						 sort: '-_id'	
+					   },function(err,allFood){
+			if(err){
+			console.log(err);
+			} else{
+				
+			res.render("food/showcase",{food: allFood, topic:"Food Stories"});  //allCampground is accesing the database 
                   }
 	})
 })

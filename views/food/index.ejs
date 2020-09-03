@@ -3,7 +3,7 @@
   <div class="page-wrapper">
       <div class="cover">
         <div class="feature">
-          <img src="<%=food[10].image%>" alt="">
+          <img src="<%=food[0].image%>" alt="">
           <div class="title_filter"></div>
           <div class="feature_title">
             <div class="date">
@@ -11,7 +11,7 @@
               <h3>14<span>Jun</span></h3>
             </div>
             <p>by <a href="#">Deep</a><span></span><a>Food Blogs</a></p>
-            <h1><a href="/<%=food[10].id%>"><%=food[10].title%></a> </h1>
+            <h1><a href="/<%=food[0].id%>"><%=food[0].title%></a> </h1>
           </div>
 
         </div>
@@ -194,34 +194,34 @@
   <h1 class="light-black">Our Categories</h1>
   <div class="cen">
     <div class="service">
-      <i class="fas fa-utensils" data-aos="fade-right"></i>
-      <h2 class="light-black">Recipes</h2>
-      <p>Share and relish the unique recipes</p>
+      <a href="/recipes"> <i class="fas fa-utensils" data-aos="fade-right"></i>
+     <h2 class="light-black">Recipes</h2>
+		  <p>Share and relish the unique recipes</p></a>
     </div>
     <div class="service">
-      <i class="fas fa-sticky-note" data-aos="fade-left"></i>
+      <a href="/food-blogs"><i class="fas fa-sticky-note" data-aos="fade-left"></i>
       <h2 class="light-black">Food Blogs</h2>
-      <p>All food related thoughts via blogs.</p>
+		  <p>All food related thoughts via blogs.</p></a>
     </div>
     <div class="service">
-      <i class="far fa-question-circle" data-aos="fade-right"></i>
-      <h2 class="light-black">Food Facts</h2>
-      <p>The unknown facts to the known world</p>
+      <a href="/food-facts"> <i class="far fa-question-circle" data-aos="fade-right"></i>
+     <h2 class="light-black">Food Facts</h2>
+		  <p>The unknown facts to the known world</p></a>
     </div>
     <div class="service">
-      <i class="fas fa-exclamation" data-aos="fade-left"></i>
-      <h2 class="light-black">Blogging Tips</h2>
-      <p>Providing blogging tips from the renowned bloggers.</p>
+      <a href="/blogging-tips"><i class="fas fa-exclamation" data-aos="fade-left"></i>
+     <h2 class="light-black">Blogging Tips</h2>
+		  <p>Providing blogging tips from the renowned bloggers.</p></a>
     </div>
     <div class="service">
-      <i class="far fa-newspaper" data-aos="fade-right"></i>
+      <a href="/food-affairs"><i class="far fa-newspaper" data-aos="fade-right"></i>
       <h2 class="light-black">Food Affairs</h2>
-      <p>The current scenario of the food world.</p>
+		  <p>The current scenario of the food world.</p></a>
     </div>
     <div class="service">
-      <i class="fas fa-book-open" data-aos="fade-left"></i>
+      <a href="/food-stories"><i class="fas fa-book-open" data-aos="fade-left"></i>
       <h2 class="light-black">Food Stories</h2>
-      <p>Relish and share scrumptious experiences on food.</p>
+		  <p>Relish and share scrumptious experiences on food.</p></a>
     </div>
 
   </div>
@@ -303,22 +303,22 @@
           <h2 class="light-black">Category</h2>
           <ul>
             <li data-aos="fade-right">
-              <a href="/travel">Recipes</a>
+              <a href="/recipes">Recipes</a>
             </li>
             <li data-aos="fade-left">
-              <a href="/drink">Food Blogs</a>
+              <a href="/food-blogs">Food Blogs</a>
             </li>
             <li data-aos="fade-right">
-              <a href="/eat">Food Facts</a>
+              <a href="/food-facts">Food Facts</a>
             </li>
             <li data-aos="fade-left">
-              <a href="#search">Blogging Tips</a>
+              <a href="/blogging-tips">Blogging Tips</a>
             </li>
             <li data-aos="fade-right">
-              <a href="#search">Food Affairs</a>
+              <a href="/food-affairs">Food Affairs</a>
             </li>
             <li data-aos="fade-left">
-              <a href="#search">Food Stories</a>
+              <a href="/food-stories">Food Stories</a>
             </li>
           </ul>
         </div>
