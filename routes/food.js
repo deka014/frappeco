@@ -206,8 +206,9 @@ router.get("/food-stories",function(req,res){
 router.get("/:id",function(req,res){
 	Food.findById(req.params.id).populate("comments").exec(function(err,foundfood){
 		if(err || !foundfood){
-			req.flash("error","Food Not Found");
-			res.redirect("/")
+			// req.flash("error","Food Not Found");
+			// res.redirect("/")
+			res.render("error")
 		} else{
 			console.log(foundfood)
 			res.render("food/show",{food: foundfood });
