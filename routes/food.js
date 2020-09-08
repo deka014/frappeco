@@ -19,6 +19,10 @@ var imageFilter = function (req, file, cb) {
     cb(null, true);
 };
 
+const findFileByFieldname = (files, fieldname) => {
+  return files.find(file => file.fieldname === fieldname) || {};
+}
+
 var upload = multer({ storage: storage, fileFilter: imageFilter})
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
@@ -72,15 +76,17 @@ router.get("/new",middleware.isLoggedIn,function(req,res){
 //ajax upload
 router.post("/save",upload.single('file'),function(req,res){
 	
-	console.log(req.file.path);
+	console.log(req.file);
 	cloudinary.uploader.upload(req.file.path, function(result) {
 	res.send(result.secure_url)
 })
 })
 
-router.post("/",middleware.isLoggedIn,upload.single('image'),function(req,res){ //here the campgrounds is accesed from form ACTION  with post method 
-	console.log(req.file)
-	cloudinary.v2.uploader.upload(req.file.path, function(err,result) {
+router.post("/",middleware.isLoggedIn,upload.any(),function(req,res){ //here the campgrounds is accesed from form ACTION  with post method 
+	// console.log(req.files)
+	const thumbnail = findFileByFieldname(req.files, 'image');
+	console.log(thumbnail)
+	cloudinary.v2.uploader.upload(thumbnail.path, function(err,result) {
 		if (err){
 			req.flash("error",err.messsage)
 		}
@@ -229,16 +235,17 @@ router.get("/:id/edit",middleware.checkFoodOwnership,function(req,res){
 
 
 //update food
-router.put("/:id",middleware.checkFoodOwnership,upload.single("image"),function(req,res){
+router.put("/:id",middleware.checkFoodOwnership,upload.any(),function(req,res){
+	const thumbnail = findFileByFieldname(req.files, 'image');
 	Food.findById(req.params.id,async function(err, updatingPost){
 		if(err){
 			req.flash("error",err.message);
 			res.redirect("back");
 		}else {
-			if (req.file){
+			if (thumbnail.length){
 				try{
 					await cloudinary.v2.uploader.destroy(updatingPost.imageId);
-					var result = await cloudinary.v2.uploader.upload(req.file.path);
+					var result = await cloudinary.v2.uploader.upload(thumbnail.path);
 					updatingPost.imageId = result.public_id;
 					updatingPost.image = result.secure_url;
 				}
