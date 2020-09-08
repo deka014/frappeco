@@ -69,6 +69,9 @@ router.get("/logout",function(req,res){
 // 	})
 		
 // })
+router.get("/team",function(req,res){
+	res.render("team.ejs")
+})
 
 router.get("/privacyandpolicy",function(req,res){
 	res.render("privacypolicy")
