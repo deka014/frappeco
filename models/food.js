@@ -4,6 +4,7 @@ var mongoose = require("mongoose"),
 var foodSchema = new mongoose.Schema({
 	title: String,
 	image: String,
+	summary: String,
 	category: String,
 	imageId : String,
 	tagOutput : String,

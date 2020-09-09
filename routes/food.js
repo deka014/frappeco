@@ -58,8 +58,7 @@ router.get("/",async function(req,res){
 				let popular = await Food.find({'approach.popular' : true});
 				let food = await Food.find().sort({_id:-1}).limit(4);
 
-				let random = Math.floor(Math.random() * 25);
-				console.log(popular)
+				// let random = Math.floor(Math.random() * 25);
 				// console.log(random)
 				// res.locals.navclass = "home-nav-color";
 				res.render("food/index",{food,feature,popular});  //allCampground is accesing the database 
@@ -219,7 +218,7 @@ router.get("/:id",function(req,res){
 			// res.redirect("/")
 			res.render("error")
 		} else{
-			console.log(foundfood)
+			console.log("title: " + foundfood.title)
 			res.render("food/show",{food: foundfood });
 		}
 		
@@ -259,6 +258,7 @@ router.put("/:id",middleware.checkFoodOwnership,upload.any(),function(req,res){
 			}
 		}
 		updatingPost.title = req.body.food.title;
+		updatingPost.summary = req.body.food.summary;
 		updatingPost.category = req.body.food.category;
 		updatingPost.description = req.body.food.description;
 		updatingPost.tagOutput = req.body.food.tagOutput;

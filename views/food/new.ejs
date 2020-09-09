@@ -10,12 +10,16 @@
 	  <form action="/" method="POST" enctype="multipart/form-data">
 		 <label>Title</label>
 		  <div class="form-group m-auto pb-3">
-	<input class="form-control"type="text" name="food[title]" placeholder="Title">
+	<input class="form-control"type="text" name="food[title]" placeholder="Title" required>
 		  </div>
 		  <label>Thumbnail (First Image To Appear In Your Blog)</label>	   
 		  <div class="p-auto mb-4 custom-file">
 	<input class="custom-file-input" type="file" id="image" name="image" accept="image/*" required>
 		<label class="custom-file-label" for="image">Choose file</label>
+		  </div>
+		  <label>Overview (Write About Your Post In One Line) </label>
+		  <div class="form-group m-auto pb-3">
+	<input class="form-control"type="text" name="food[summary]" placeholder="Summary" required>
 		  </div>
 		   <!-- <div class="form-group">
                     <label for="image">Image</label>
