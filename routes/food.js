@@ -236,13 +236,13 @@ router.get("/:id/edit",middleware.checkFoodOwnership,function(req,res){
 
 //update food
 router.put("/:id",middleware.checkFoodOwnership,upload.any(),function(req,res){
-	const thumbnail = findFileByFieldname(req.files, 'image');
 	Food.findById(req.params.id,async function(err, updatingPost){
 		if(err){
 			req.flash("error",err.message);
 			res.redirect("back");
 		}else {
-			if (thumbnail.length){
+			const thumbnail = await findFileByFieldname(req.files, 'image');
+			if (thumbnail.path){
 				try{
 					await cloudinary.v2.uploader.destroy(updatingPost.imageId);
 					var result = await cloudinary.v2.uploader.upload(thumbnail.path);
