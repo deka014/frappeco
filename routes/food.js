@@ -54,12 +54,15 @@ router.get("/",async function(req,res){
 	}
 	else{
 			try{
-				let food = await Food.find({'approach.feature' : true});
-				let popular = await Food.find({'approach.popular ' : true});
+				let feature = await Food.find({'approach.feature' : true});
+				let popular = await Food.find({'approach.popular' : true});
+				let food = await Food.find().sort({_id:-1}).limit(4);
+
 				let random = Math.floor(Math.random() * 25);
+				console.log(popular)
 				// console.log(random)
 				// res.locals.navclass = "home-nav-color";
-				res.render("food/index",{food , random});  //allCampground is accesing the database 
+				res.render("food/index",{food,feature,popular});  //allCampground is accesing the database 
 			}
 			catch(err){
 				req.flash("error",err.message);

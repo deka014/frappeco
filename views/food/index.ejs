@@ -3,52 +3,52 @@
   <div class="page-wrapper">
       <div class="cover">
         <div class="feature">
-          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+          <img src="<%=feature[0].image%>" alt="">
           <div class="title_filter"></div>
           <div class="feature_title">
             <div class="date">
               <div class="date_filter"></div>
               <h3>14<span>Jun</span></h3>
             </div>
-            <p>by <a href="#">Deep</a><span></span><a>Food Blogs</a></p>
-            <h1><a href="#">Comming Soon</a> </h1>
+            <p>by <a href="#"><%=feature[0].author.username%></a><span></span><a><%=feature[0].category%></a></p>
+            <h1><a href="/<%=feature[0].id%>"><%=feature[0].title%></a> </h1>
           </div>
 
         </div>
         <div class="feature">
-          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+          <img src="<%=feature[1].image%>" alt="">
           <div class="title_filter"></div>
           <div class="feature_title">
             <div class="date">
               <div class="date_filter"></div>
               <h3>16<span>Jul</span></h3>
             </div>
-			  <p>by <a href="#">Jason</a><span></span><a>Food Facts</a></p>
-            <h1><a href="single.html">Spaghetti Mozerella</a> </h1>
+			  <p>by <a href="#"><%=feature[1].author.username%></a><span></span><a><%=feature[1].category%></a></p>
+            <h1><a href="/<%=feature[1].id%>"><%=feature[1].title%></a> </h1>
           </div>
         </div>
         <div class="feature" >
-          <img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+          <img src="<%=feature[2].image%>" alt="">
           <div class="title_filter"></div>
           <div class="feature_title">
             <div class="date">
               <div class="date_filter"></div>
               <h3>23<span>Dec</span></h3>
             </div>
-            <p>by <a href="#">Ron</a><span></span>Blogging Tips</p>
-            <h1><a href="single.html">Chowww </a></h1>
+            <p>by <a href="#"><%=feature[2].author.username%></a><span></span><%=feature[2].category%></p>
+            <h1><a href="/<%=feature[2].id%>"><%=feature[2].title%></a></h1>
           </div>
         </div>
         <div class="feature">
-          <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+          <img src="<%=feature[3].image%>" alt="">
           <div class="title_filter"></div>
           <div class="feature_title">
             <div class="date">
               <div class="date_filter"></div>
               <h3>24<span>Jun</span></h3>
             </div>
-            <p>by <a href="#">Beast</a><span></span>Food Stories</p>
-            <h1><a href="single.html">Burger Mozerella </a></h1>
+            <p>by <a href="#"><%=feature[3].author.username%></a><span></span><%=feature[3].category%></p>
+            <h1><a href="/<%=feature[3].id%>"><%=feature[3].title%></a></h1>
           </div>
         </div>
       </div>
@@ -73,12 +73,12 @@
           <div class="post1 nocolour">
 
             <div class="calendar1" data-aos="fade-right">
-              <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="">
+              <img src="<%=feature[4].image%>" alt="">
 
             </div>
             <div class="dish">
-              <h6 class="light-black">Blogging Tips</h6>
-              <h3><a href="single.html">Steamed alaska king crab</a></h3>
+              <h6 class="light-black"><%=feature[4].category%></h6>
+              <h3><a href="/<%=feature[4].id%>"><%=feature[4].title%></a></h3>
               <!-- MAx 10 word paragraph👇 -->
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias </p>
             </div>
@@ -86,11 +86,11 @@
           </div>
           <div class="post1 nocolour">
             <div class="calendar1" data-aos="fade-left">
-              <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+              <img src="<%=feature[5].image%>" alt="">
             </div>
             <div class="dish">
-              <h6 class="light-black">Food Facts</h6>
-              <h3><a href="single.html"> Steamed Momos</a></h3>
+              <h6 class="light-black"><%=feature[5].category%></h6>
+              <h3><a href="/<%=feature[5].id%>"><%=feature[5].title%></a></h3>
 
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, maxime?</p>
 
@@ -98,11 +98,11 @@
           </div>
           <div class="post1 nocolour">
             <div class="calendar1"data-aos="fade-right">
-              <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+              <img src="<%=feature[6].image%>" alt="">
             </div>
             <div class="dish">
-              <h6 class="light-black">Food blogs</h6>
-              <h3> <a href="single.html">Roasted Chicken</a></h3>
+              <h6 class="light-black"><%=feature[6].category%></h6>
+              <h3> <a href="/<%=feature[6].id%>"><%=feature[6].title%></a></h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, obcaecati!</p>
             </div>
           </div>
@@ -129,62 +129,20 @@
       <i class="fas fa-chevron-left prev"></i>
       <i class="fas fa-chevron-right next"></i>
       <div class="post-wrapper">
+		  
+	   <%popular.forEach(function(item){%>
         <div class="post">
-          <img src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="" class="slider-image">
+          <img src="<%=item.image%>" alt="" class="slider-image">
           <div class="post-info">
             <h4 class="light-black">
-              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
+              <a href="/<%=item.id%>"><%=item.title%></a>
             </h4>
-            <i class="far fa-user">Ron Deka</i>
+            <i class="far fa-user"><%=item.author.username%></i>
             &nbsp;
-            <i class="far fa-calendar">10 Aug,2020</i>
+            <i class="far fa-calendar"><%=item.date%></i>
           </div>
         </div>
-        <div class="post">
-          <img src="https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80" alt="" class="slider-image">
-          <div class="post-info">
-            <h4 class="light-black">
-              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
-            </h4>
-            <i class="far fa-user">Ron Deka</i>
-            &nbsp;
-            <i class="far fa-calendar">10 Aug,2020</i>
-          </div>
-        </div>
-        <div class="post">
-          <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="" class="slider-image">
-          <div class="post-info">
-            <h4 class="light-black">
-              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
-            </h4>
-            <i class="far fa-user">Ron Deka</i>
-            &nbsp;
-            <i class="far fa-calendar">10 Aug,2020</i>
-          </div>
-        </div>
-        <div class="post">
-          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1035&q=80" alt="" class="slider-image">
-          <div class="post-info">
-            <h4 class="light-black">
-              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
-            </h4>
-            <i class="far fa-user">Ron Deka</i>
-            &nbsp;
-            <i class="far fa-calendar">10 Aug,2020</i>
-          </div>
-        </div>
-        <div class="post">
-          <img src="https://images.unsplash.com/photo-1484300681262-5cca666b0954?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" alt="" class="slider-image">
-          <div class="post-info">
-            <h4 class="light-black">
-              <a href="single.html">Best japanese barbeque in Guwahati. Delictable & fabbergasting</a>
-            </h4>
-            <i class="far fa-user">Ron Deka</i>
-            &nbsp;
-            <i class="far fa-calendar">10 Aug,2020</i>
-          </div>
-        </div>
-
+	  <% }) %>
       </div>
     </div>
     <!-- xxxxxPost Slider -->
@@ -234,58 +192,58 @@
 
         <!-- post -->
         <div class="post clearfix" data-aos="fade-right">
-          <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="post-image">
+          <img src="<%=food[0].image%>" alt="" class="post-image">
           <div class="post-preview">
             <h2 class="light-black">
-              <a href="single.html">The best Street food in Town is Yet to come!!!</a></h2>
-            <i class="far fa-user">Rohan Deka</i>
+              <a href="<%=food[0].id%>"><%=food[0].title%></a></h2>
+            <i class="far fa-user"><%=food[0].author.username%></i>
             &nbsp;
-            <i class="far calendar">10 Aug, 2020</i>
+            <i class="far calendar"><%=food[0].date%></i>
             <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Suscipit laborum totam ab iusto quis laudantium.</p>
-            <a href="single.html" class="btn read-more">Read More</a>
+            <a href="<%=food[0].id%>" class="btn read-more">Read More</a>
           </div>
         </div>
 
         <div class="post clearfix" data-aos="fade-left">
-          <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="" class="post-image">
+          <img src="<%=food[1].image%>" alt="" class="post-image">
           <div class="post-preview">
             <h2 class="light-black">
-              <a href="single.html">Easy comfy Dates...</a></h2>
-            <i class="far fa-user">Ashima Verma</i>
+              <a href="/<%=food[1].id%>"><%=food[1].title%></a></h2>
+            <i class="far fa-user"><%=food[1].author.username%></i>
             &nbsp;
-            <i class="far calendar">11 Aug, 2020</i>
+            <i class="far calendar"><%=food[1].date%></i>
             <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Suscipit laborum totam ab iusto quis laudantium.</p>
-            <a href="single.html" class="btn read-more">Read More</a>
+            <a href="/<%=food[1].id%>" class="btn read-more">Read More</a>
           </div>
         </div>
 
         <div class="post clearfix" data-aos="fade-right">
-          <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" alt="" class="post-image">
+          <img src="<%=food[2].image%>" alt="" class="post-image">
           <div class="post-preview">
             <h2 class="light-black">
-              <a href="single.html">My cooking Accidents!😥 </a></h2>
-            <i class="far fa-user">Aakansha</i>
+              <a href="/<%=food[2].id%>"><%=food[2].title%> </a></h2>
+            <i class="far fa-user"><%=food[2].author.username%></i>
             &nbsp;
-            <i class="far calendar">11 Aug, 2020</i>
+            <i class="far calendar"><%=food[2].date%></i>
             <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Suscipit laborum totam ab iusto quis laudantium.</p>
-            <a href="single.html" class="btn read-more">Read More</a>
+            <a href="/<%=food[2].id%>" class="btn read-more">Read More</a>
           </div>
         </div>
 
         <div class="post clearfix" data-aos="fade-left">
-          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="" class="post-image">
+          <img src="<%=food[3].image%>" alt="" class="post-image">
           <div class="post-preview">
             <h2 class="light-black">
-              <a href="single.html">How to cook good food easily?</a></h2>
-            <i class="far fa-user">Anushmita Baruah</i>
+              <a href="/<%=food[3].id%>"><%=food[3].title%></a></h2>
+            <i class="far fa-user"><%=food[3].author.username%></i>
             &nbsp;
-            <i class="far calendar">11 Aug, 2020</i>
+            <i class="far calendar"><%=food[3].date%></i>
             <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Suscipit laborum totam ab iusto quis laudantium.</p>
-            <a href="single.html" class="btn read-more">Read More</a>
+            <a href="/<%=food[3].id%>" class="btn read-more">Read More</a>
           </div>
         </div>
 
