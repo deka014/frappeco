@@ -1,15 +1,6 @@
 /* bootstrap over ride
  */
 
-
-a:hover {
-    text-decoration: None;
-}
-
-
-
-
-
 @font-face {
   font-family: 'Rabbit';
   src: url(../fonts/Rabbit.otf);
@@ -32,16 +23,33 @@ body{
   overflow-x : hidden;	
 }
 
+
+a{
+	color : inherit;
+}
+
+a:hover {
+    text-decoration: None;
+	color : inherit
+}
+
 h1,h2,h3,h4,h5,h6{
   font-family: 'Nunito',sans-serif;
   color: #414141;
   margin: 5px;
+  font-weight: bold;	
 }
-/* 
-a{
-  text-decoration: none;
-  color: inherit;
-} */
+
+h1{
+	font-size: 2em;
+}
+
+h2{
+	font-size: 1.5em;
+}
+h3{
+	font-size: 1.17em;
+}
 
 .header{
   background: #006669;
@@ -52,9 +60,9 @@ a{
   
 }
 
-.header a:hover{
+/* .header a:hover{
  color: White; 
-}
+} */
 
 .header *{
   color: white;
@@ -124,7 +132,7 @@ z-index: 88888;
   display: none;
 }
 .searchbar form {
-  width: 100%;
+  /* width: 100%; */
   margin: 30px 0 0 72px;
 }
 .topStext{
@@ -151,14 +159,14 @@ z-index: 88888;
 
 .cover{
   display: grid;
-  grid-template-columns: 50% 20% 25%;
+  grid-template-columns: 50% 20% 29%;
   grid-template-rows: 300px 300px;
   grid-gap: 5px 5px;
-  width: 1200px;
+  width: 1349px;
   margin:30px auto;
   /* padding-left: 30px; */
   padding : 10px
-
+	
 }
 .cover h1 a{
   color: #fff;
@@ -213,7 +221,7 @@ z-index: 88888;
 }
 
 .feature_title h1{
-  font-family: 28px;
+  font-size: 28px;
 }
 .feature_title p{
   font-size: 10px;
@@ -788,7 +796,7 @@ h2.section-title{
   color: #414141;
 }
 .logo-text{
-  margin-top: 0px;
+  margin: 9px;
   font-family: 'Candal',sans-serif;
 }
 
@@ -848,11 +856,17 @@ height: auto;
 }
 .feature{
   width: 100%;
+  margin-bottom : 10px	
  }
  .feature img{
    height: 400px;
 
  }
+	
+.feature_title h1{
+  font-size: 20px !important;
+}	
+	
  .featured{
    display: flex;
    flex-direction: column;
@@ -901,7 +915,7 @@ height: auto;
     /* position: relative; */
 	  position:sticky;
       top:0;
-     z-index:1;
+      z-index:1;
   }
   .auth-content{
     width:60%;
@@ -986,9 +1000,10 @@ height: auto;
 
 @media(max-width:600px){
   .searchbar form{
-    margin: 0;
+    /* margin: 0; */
+	  margin: 18px 10vw -12px 4vw;
   }
-  .topStext{
+  /* .topStext{
     width: 100%;
     margin-top: 30px;
     border-radius: 5px;
@@ -1004,7 +1019,8 @@ height: auto;
     border-radius: 5px;
 
   }
-  .service{
+   */
+	.service{
     width: 100%;
   }
 }
