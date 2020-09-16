@@ -79,8 +79,12 @@ router.get("/new",middleware.isLoggedIn,function(req,res){
 router.post("/save",upload.single('file'),function(req,res){
 	
 	console.log(req.file);
-	cloudinary.uploader.upload(req.file.path, function(result) {
-	res.send(result.secure_url)
+	cloudinary.v2.uploader.upload(req.file.path,
+								  {
+								   folder : req.user.username
+								  },
+								function(error,result) {
+	res.send(cloudinary.url(result.public_id,{quality:'auto',fetch_format: "auto", width: 1080, height: 800, crop: "fill"}))
 })
 })
 
@@ -94,7 +98,7 @@ router.post("/",middleware.isLoggedIn,upload.any(),function(req,res){ //here the
 		}
     // add cloudinary url for the image to the campground object under image property
 	req.body.food.date = moment().format('LL');
-	req.body.food.image = result.secure_url;
+	req.body.food.image = cloudinary.url(result.public_id,{quality:'auto',fetch_format: "auto", width: 1080, height: 800, crop: "fill"});
 	//add images public id to campground db 
 	req.body.food.imageId = result.public_id;	
 	// console.log(result)
@@ -249,7 +253,7 @@ router.put("/:id",middleware.checkFoodOwnership,upload.any(),function(req,res){
 					await cloudinary.v2.uploader.destroy(updatingPost.imageId);
 					var result = await cloudinary.v2.uploader.upload(thumbnail.path);
 					updatingPost.imageId = result.public_id;
-					updatingPost.image = result.secure_url;
+					updatingPost.image = cloudinary.url(result.public_id,{quality:'auto',fetch_format: "auto", width: 1080, height: 800, crop: "fill"});
 				}
 				catch(err){
 					req.flash("error",err.message);
