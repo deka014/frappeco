@@ -80,7 +80,7 @@ router.post("/save",upload.single('file'),function(req,res){
 	
 	console.log(req.file);
 	cloudinary.v2.uploader.upload(req.file.path,{folder : req.user.username},function(error,result) {
-	res.send(cloudinary.url(result.public_id,{quality:'auto',fetch_format: "auto", width: 1084, height: 723, crop: "fill", secure:"true"}))
+	res.send(cloudinary.url(result.public_id,{quality:'auto',fetch_format: "auto",secure:"true"}))
 })
 })
 
@@ -88,7 +88,7 @@ router.post("/",middleware.isLoggedIn,upload.any(),function(req,res){ //here the
 	// console.log(req.files)
 	const thumbnail = findFileByFieldname(req.files, 'image');
 	console.log(thumbnail)
-	cloudinary.v2.uploader.upload(thumbnail.path,{folder : req.user.username}, function(err,result) {
+	cloudinary.v2.uploader.upload(thumbnail.path,{folder : req.user.username + "_thumbnail"}, function(err,result) {
 		if (err){
 			req.flash("error",err.messsage)
 		}
