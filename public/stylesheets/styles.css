@@ -361,7 +361,7 @@ border-radius: 3px;
   border: 7px solid #eebb4d;
 }
 .rightsidebar .about p{
-  text-align: center;
+  /* text-align: center; */
   width: 100%;
 }
 .rightsidebar h2{

@@ -80,7 +80,7 @@
               <h6 class="light-black"><%=feature[4].category%></h6>
               <h3><a href="/<%=feature[4].id%>"><%=feature[4].title%></a></h3>
               <!-- MAx 10 word paragraph👇 -->
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias </p>
+              <p><%=feature[4].summary%></p>
             </div>
 
           </div>
@@ -92,7 +92,7 @@
               <h6 class="light-black"><%=feature[5].category%></h6>
               <h3><a href="/<%=feature[5].id%>"><%=feature[5].title%></a></h3>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, maxime?</p>
+              <p><%=feature[5].summary%></p>
 
             </div>
           </div>
@@ -103,7 +103,7 @@
             <div class="dish">
               <h6 class="light-black"><%=feature[6].category%></h6>
               <h3> <a href="/<%=feature[6].id%>"><%=feature[6].title%></a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, obcaecati!</p>
+              <p><%=feature[6].summary%></p>
             </div>
           </div>
 
@@ -115,7 +115,7 @@
             <a href="single.html"><img src="https://images.unsplash.com/photo-1532980400857-e8d9d275d858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="width:100%;" ,height="80%;"></a>
           <section class="fact nocolour">
 
-          <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, recusandae."</p>
+          <p>"Studies have shown that eating peanut butter can help lower cholesterol, aid in weight loss and prevent type 2 diabetes. Bet you didn't know this either, but peanut butter glows in the dark after it's exposed to intense light!"</p>
 
         </section>
           </div>
@@ -199,8 +199,7 @@
             <i class="far fa-user"><%=food[0].author.username%></i>
             &nbsp;
             <i class="far calendar"><%=food[0].date%></i>
-            <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Suscipit laborum totam ab iusto quis laudantium.</p>
+            <p class="preview-text"><%=food[0].summary%></p>
             <a href="<%=food[0].id%>" class="btn read-more">Read More</a>
           </div>
         </div>
@@ -213,8 +212,7 @@
             <i class="far fa-user"><%=food[1].author.username%></i>
             &nbsp;
             <i class="far calendar"><%=food[1].date%></i>
-            <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Suscipit laborum totam ab iusto quis laudantium.</p>
+            <p class="preview-text"><%=food[1].summary%></p>
             <a href="/<%=food[1].id%>" class="btn read-more">Read More</a>
           </div>
         </div>
@@ -227,8 +225,7 @@
             <i class="far fa-user"><%=food[2].author.username%></i>
             &nbsp;
             <i class="far calendar"><%=food[2].date%></i>
-            <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Suscipit laborum totam ab iusto quis laudantium.</p>
+            <p class="preview-text"><%=food[2].summary%></p>
             <a href="/<%=food[2].id%>" class="btn read-more">Read More</a>
           </div>
         </div>
@@ -241,8 +238,7 @@
             <i class="far fa-user"><%=food[3].author.username%></i>
             &nbsp;
             <i class="far calendar"><%=food[3].date%></i>
-            <p class="preview-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Suscipit laborum totam ab iusto quis laudantium.</p>
+            <p class="preview-text"><%=food[3].summary%></p>
             <a href="/<%=food[3].id%>" class="btn read-more">Read More</a>
           </div>
         </div>
@@ -252,8 +248,8 @@
       <!-- sidebar -->
       <div class="sidebar">
         <div class="section search">
-          <form action="index.html" method="post">
-            <input type="text" name="search-term" class="text-input" id="search" placeholder="Search ...">
+          <form action="/" method="GET">
+            <input type="text" name="search" class="text-input" id="search" placeholder="Search ...">
           </form>
 
         </div>
