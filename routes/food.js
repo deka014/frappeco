@@ -127,7 +127,8 @@ router.post("/",middleware.isLoggedIn,upload.any(),function(req,res){ //here the
 router.get("/recipes",function(req,res){
 	Food.paginate({category : "recipes" }, {
 				 		 page: req.query.page || 1,
-				  		 limit: 12
+				  		 limit: 12,
+						  sort: '-_id'	
 					   },function(err,allFood){
 			if(err){
 			console.log(err);
@@ -141,7 +142,8 @@ router.get("/recipes",function(req,res){
 router.get("/food-blogs",function(req,res){
 		Food.paginate({category : "food blogs" }, {
 				 		 page: req.query.page || 1,
-				  		 limit: 12
+				  		 limit: 12,
+			    		 sort: '-_id'	
 					   },function(err,allFood){
 			if(err){
 			console.log(err);

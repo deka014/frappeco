@@ -75,7 +75,8 @@
 				<!-- <div class="caption-full"> -->
 				<div class="card-body p-0" > 
 					<p><%-food.description%></p>
-					<p><em> Submitted By <a href="/profile/<%=food.author.id%>"><%=food.author.username%>						</a></em></p>
+					<p><em> Submitted By <a href="/profile/<%=food.author.id%>"><%=food.author.username%> - <%=food.date%>						</a></em></p>
+			
 		 <%if(currentUser && food.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin ){%>
 					<a class= "btn btn-xs btn-warning" href="/<%=food.category%>/<%=food.slug1%>/edit">
 						Edit
@@ -125,7 +126,7 @@
                 </a>
             </div>
             <div class="media-body">
-				<a href="/profile/5ef534a458a8f61889b0d5fb"><h4 class="media-heading m-0 ">John Doe</h4></a>
+				<a href="/profile/5ef534a458a8f61889b0d5fb"><h4 class="media-heading m-0 "><%=comment.author.username%></h4></a>
 				<%if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin ){%>
 						<div class="float-right">
 							<!-- <a class= "btn" 
