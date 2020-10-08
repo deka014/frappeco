@@ -12,6 +12,7 @@ router.get("/new",middleware.isLoggedIn,function(req,res){
 			req.flash("error","Not Found");
 		    res.redirect("back")
 		}else{
+		res.locals.title = item.title + " Comment - Frappeco"	
 		res.render("comments/new",{item:item});
 		}
 	})

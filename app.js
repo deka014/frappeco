@@ -68,7 +68,7 @@ app.use(function(req,res,next){
 	res.locals.currentUser = req.user;// now  i dont need to {add currentUser : req.user} in every step
 	res.locals.error = req.flash("error");
 	res.locals.message = req.flash("success");
-	// res.locals.navclass = "default";
+	res.locals.title = "Frappeco - Never go empty";
 	res.locals.paginatedUrl = req.originalUrl.replace(/(\?|\&)page=\d+/g, '') + "?"
 	next();
 });

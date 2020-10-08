@@ -48,6 +48,7 @@ router.get("/",async function(req,res){
 		}else{
 		// const delimiter = req.query.search ? '&' : '?';      not used because there are no multiple query
 		var paginatedUrl = req.originalUrl.replace(/(\?|\&)page=\d+/g, '') + "&"
+		res.locals.title = "You searched for " + regex + " - Frappeco"
 		res.render("food/showcase",{topic :"search result for : "+ req.query.search, paginatedUrl , food})	
 		}
 		
@@ -72,6 +73,7 @@ router.get("/",async function(req,res){
 })
 
 router.get("/new",middleware.isLoggedIn,function(req,res){
+	res.locals.title = "Add New Content - Frappeco"
     res.render("food/new"); 
 })
 
@@ -130,7 +132,7 @@ router.get("/recipes",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-				
+			res.locals.title = 	"Recipes - Frappeco"
 			res.render("food/showcase",{food: allFood, topic:"Recipes"});  //allCampground is accesing the database 
                   }
 	})
@@ -144,7 +146,7 @@ router.get("/food-blogs",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-				
+			res.locals.title = "Food Blogs - Frappeco"	
 			res.render("food/showcase",{food: allFood, topic:"Food Blogs"});  //allCampground is accesing the database 
                   }
 	})
@@ -160,7 +162,7 @@ router.get("/food-facts",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-				
+			res.locals.title = 	"Food Facts - Frappeco"	
 			res.render("food/showcase",{food: allFood, topic:"Food Facts"});  //allCampground is accesing the database 
                   }
 	})
@@ -175,7 +177,7 @@ router.get("/blogging-tips",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-				
+			res.locals.title = 	"Blogging Tips - Frappeco"	
 			res.render("food/showcase",{food: allFood, topic:"Blogging Tips"});  //allCampground is accesing the database 
                   }
 	})
@@ -190,7 +192,7 @@ router.get("/food-affairs",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-				
+			res.locals.title = 	"Food Affairs - Frappeco"	
 			res.render("food/showcase",{food: allFood, topic:"Food Affairs"});  //allCampground is accesing the database 
                   }
 	})
@@ -205,7 +207,7 @@ router.get("/food-stories",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-				
+				res.locals.title = 	"Food Stories - Frappeco"
 			res.render("food/showcase",{food: allFood, topic:"Food Stories"});  //allCampground is accesing the database 
                   }
 	})
@@ -219,6 +221,7 @@ router.get("/:id/:id1",function(req,res){
 			res.render("error")
 		} else{
 			console.log(foundfood.slug1)
+			res.locals.title = foundfood.title + " - Frappeco"
 			res.render("food/show",{food: foundfood });
 		}
 		
@@ -229,7 +232,8 @@ router.get("/:id/:id1",function(req,res){
 // edit food
 router.get("/:id/:id1/edit",middleware.checkFoodOwnership,function(req,res){
 	//is user logged in
-			Food.findOne({category : req.params.id , slug1 : req.params.id1},function(err,foundfood){	
+			Food.findOne({category : req.params.id , slug1 : req.params.id1},function(err,foundfood){
+			res.locals.title = "Edit "+ foundfood.title + " - Frappeco"
 			res.render("food/edit",{food: foundfood })
 			
 	});

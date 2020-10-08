@@ -10,6 +10,7 @@ var express = require("express"),
 
 //auth routes
 router.get("/register",function(req,res){
+	res.locals.title = " Sign Up - Frappeco"
 	res.render("register")
 })
 //handle sign up 
@@ -36,6 +37,7 @@ router.post("/register",function(req,res){
 //login form
 
 router.get("/login",function(req,res){
+	res.locals.title = "Log In - Frappeco"
 	res.render("login")
 	// res.render("login", {message: req.flash("error")})
 })
@@ -70,14 +72,17 @@ router.get("/logout",function(req,res){
 		
 // })
 router.get("/team",function(req,res){
+	res.locals.title = "Our Team - Frappeco"
 	res.render("team.ejs")
 })
 
 router.get("/privacy-policy",function(req,res){
+	res.locals.title = "Privacy Policy - Frappeco"
 	res.render("privacypolicy")
 })
 
 router.get("/terms",function(req,res){
+	res.locals.title = "Terms & Conditions - Frappeco"
 	res.render("tandC")
 })
 
