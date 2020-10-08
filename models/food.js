@@ -1,8 +1,18 @@
 var mongoose = require("mongoose"),
-	mongoosePaginateV2 = require("mongoose-paginate-v2");
+	mongoosePaginateV2 = require("mongoose-paginate-v2"),
+	slug = require('mongoose-slug-updater');
+
+mongoose.plugin(slug)
 
 var foodSchema = new mongoose.Schema({
 	title: String,
+	slug1: { 
+		type: String, 
+		uniqueGroupSlug: ['category'],
+        slugPaddingSize: 2,
+		slug: "title",
+		index: true
+	},
 	image: String,
 	summary: String,
 	category: String,

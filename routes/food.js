@@ -107,7 +107,7 @@ router.post("/",middleware.isLoggedIn,upload.any(),function(req,res){ //here the
 		if(err){
 			console.log(err)
 		}else {
-			res.redirect("/" + newlyCreated.id);
+			res.redirect("/"+ newlyCreated.category + "/" + newlyCreated.slug1);
 		}
 	});
 })
@@ -211,14 +211,14 @@ router.get("/food-stories",function(req,res){
 	})
 })
 
-router.get("/:id",function(req,res){
-	Food.findById(req.params.id).populate("comments").exec(function(err,foundfood){
+router.get("/:id/:id1",function(req,res){
+	Food.findOne({category : req.params.id , slug1 : req.params.id1}).populate("comments").exec(function(err,foundfood){
 		if(err || !foundfood){
 			// req.flash("error","Food Not Found");
 			// res.redirect("/")
 			res.render("error")
 		} else{
-			console.log("title: " + foundfood.title)
+			console.log(foundfood.slug1)
 			res.render("food/show",{food: foundfood });
 		}
 		
@@ -227,9 +227,9 @@ router.get("/:id",function(req,res){
 
 
 // edit food
-router.get("/:id/edit",middleware.checkFoodOwnership,function(req,res){
+router.get("/:id/:id1/edit",middleware.checkFoodOwnership,function(req,res){
 	//is user logged in
-			Food.findById(req.params.id,function(err,foundfood){	
+			Food.findOne({category : req.params.id , slug1 : req.params.id1},function(err,foundfood){	
 			res.render("food/edit",{food: foundfood })
 			
 	});
@@ -237,8 +237,8 @@ router.get("/:id/edit",middleware.checkFoodOwnership,function(req,res){
 
 
 //update food
-router.put("/:id",middleware.checkFoodOwnership,upload.any(),function(req,res){
-	Food.findById(req.params.id,async function(err, updatingPost){
+router.put("/:id/:id1",middleware.checkFoodOwnership,upload.any(),function(req,res){
+	Food.findOne({category : req.params.id , slug1 : req.params.id1},async function(err, updatingPost){
 		if(err){
 			req.flash("error",err.message);
 			res.redirect("back");
@@ -262,16 +262,16 @@ router.put("/:id",middleware.checkFoodOwnership,upload.any(),function(req,res){
 		updatingPost.category = req.body.food.category;
 		updatingPost.description = req.body.food.description;
 		updatingPost.tagOutput = req.body.food.tagOutput;
-		updatingPost.save();
+		await updatingPost.save();
 		req.flash("success","Updated Your Post");
-		res.redirect("/" + req.params.id ) //or updatedCamp._id = req.params.id  both gives the id
+		res.redirect("/"+ updatingPost.category + "/" + updatingPost.slug1 ) //or updatedCamp._id = req.params.id  both gives the id
 	})
 })
 
 //destroy food 
 
-router.delete("/:id",middleware.checkFoodOwnership,function(req,res){
-		Food.findById(req.params.id, async function(err, deletingPost){
+router.delete("/:id/:id1",middleware.checkFoodOwnership,function(req,res){
+		Food.findOne({category : req.params.id , slug1 : req.params.id1}, async function(err, deletingPost){
 				if(err){
 					req.flash("error", err.message)
 					res.redirect("/");

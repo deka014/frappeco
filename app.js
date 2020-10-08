@@ -20,7 +20,7 @@ mongoose.set("useUnifiedTopology", true);
 // console.log(process.env.DATABASEURL)  in terminal- export DATABASEURL=mongodb://localhost/yelp_camp
 // var url = process.env.DATABASEURL || "mongodb://localhost/food_blog"
 // mongoose.connect("mongodb://localhost/fblog",{ useNewUrlParser: true });
-mongoose.connect("mongodb+srv://rondeka:hello@123@frappeco.k1hqv.mongodb.net/frappeco?retryWrites=true&w=majority", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://rondeka:hello@123@frappeco.k1hqv.mongodb.net/frappeco?retryWrites=true&w=majority", {useCreateIndex: true,useNewUrlParser: true });
 
 //  async function seedPosts() {
 //  	await Food.remove({});
@@ -76,7 +76,7 @@ app.use(function(req,res,next){
 //reqquires from the route folder
 app.use(indexRoutes);
 app.use(foodRoutes);  ///campgrounds means all the routes will be starting from campgrounds/xyz
-app.use("/:id/comments",commentRoutes);
+app.use("/:id/:id1/comments",commentRoutes);
 
 
 app.listen(process.env.PORT || 3000, function() {

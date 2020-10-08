@@ -41,7 +41,7 @@
 	Edit <%=food.title%>
 </h1>
   <div class="pt-3">
-	  <form action="/<%=food._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+	  <form action="/<%=food.category%>/<%=food.slug1%>?_method=PUT" method="POST" enctype="multipart/form-data">
 		 <label>Title</label>
 		  <div class="form-group m-auto pb-3">
 	<input class="form-control"type="text" name="food[title]" placeholder="Title" value="<%=food.title%>">

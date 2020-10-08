@@ -77,11 +77,11 @@
 					<p><%-food.description%></p>
 					<p><em> Submitted By <a href="/profile/<%=food.author.id%>"><%=food.author.username%>						</a></em></p>
 		 <%if(currentUser && food.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin ){%>
-					<a class= "btn btn-xs btn-warning" href="/<%=food._id%>/edit">
+					<a class= "btn btn-xs btn-warning" href="/<%=food.category%>/<%=food.slug1%>/edit">
 						Edit
 					</a>
 					
-					<form id="delete-form" action="/<%= food._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want To Do That?')" style="display:inline;">
+					<form id="delete-form" action="/<%=food.category%>/<%=food.slug1%>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want To Do That?')" style="display:inline;">
 						<button class="btn btn-danger">
 							Delete
 						</button>
@@ -89,7 +89,7 @@
 		<% } %>
 			<div class="Well">
 				<div class="text-right">
-					<a class="btn btn-success"href="/<%=food._id%>/comments/new">Add new Comment </a>
+					<a class="btn btn-success"href="/<%=food.category%>/<%=food.slug1%>/comments/new">Add new Comment </a>
 				</div>
 				<hr>
 				<h3 ><%= food.comments.length%> Comments </h3>
@@ -135,7 +135,7 @@
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 </svg>
 							</a> -->
-			<form id="delete-form" action="/<%=food._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST"  onsubmit="return confirm('Are You Sure You Want To Do That?')"  style="display:inline;">
+			<form id="delete-form" action="/<%=food.category%>/<%=food.slug1%>/comments/<%=comment._id%>?_method=DELETE" method="POST"  onsubmit="return confirm('Are You Sure You Want To Do That?')"  style="display:inline;">
 				<button type="submit" class="btn-sm " value="Delete" style="margin-right:10px; color: red;">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>

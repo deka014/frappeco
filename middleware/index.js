@@ -5,7 +5,7 @@ var middlewareObj = {};
 
 middlewareObj.checkFoodOwnership = function(req,res,next){
 		if(req.isAuthenticated()){
-			Food.findById(req.params.id,function(err,foundFood){
+			Food.findOne({category : req.params.id , slug1 : req.params.id1},function(err,foundFood){
 		if(err || !foundFood){
 			req.flash("error", "Food Not Found")
 			res.redirect("/foods")

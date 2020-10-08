@@ -11,7 +11,7 @@
               <h3>14<span>Jun</span></h3>
             </div>
             <p>by <a href="#"><%=feature[0].author.username%></a><span></span><a><%=feature[0].category%></a></p>
-            <h1><a href="/<%=feature[0].id%>"><%=feature[0].title%></a> </h1>
+            <h1><a href="/<%=feature[0].category%>/<%=feature[0].slug1%>"><%=feature[0].title%></a> </h1>
           </div>
 
         </div>
@@ -24,7 +24,7 @@
               <h3>16<span>Jul</span></h3>
             </div>
 			  <p>by <a href="#"><%=feature[1].author.username%></a><span></span><a><%=feature[1].category%></a></p>
-            <h1><a href="/<%=feature[1].id%>"><%=feature[1].title%></a> </h1>
+            <h1><a href="/<%=feature[1].category%>/<%=feature[1].slug1%>"><%=feature[1].title%></a> </h1>
           </div>
         </div>
         <div class="feature" >
@@ -36,7 +36,7 @@
               <h3>23<span>Dec</span></h3>
             </div>
             <p>by <a href="#"><%=feature[2].author.username%></a><span></span><%=feature[2].category%></p>
-            <h1><a href="/<%=feature[2].id%>"><%=feature[2].title%></a></h1>
+            <h1><a href="/<%=feature[2].category%>/<%=feature[2].slug1%>"><%=feature[2].title%></a></h1>
           </div>
         </div>
         <div class="feature">
@@ -48,7 +48,7 @@
               <h3>24<span>Jun</span></h3>
             </div>
             <p>by <a href="#"><%=feature[3].author.username%></a><span></span><%=feature[3].category%></p>
-            <h1><a href="/<%=feature[3].id%>"><%=feature[3].title%></a></h1>
+            <h1><a href="/<%=feature[3].category%>/<%=feature[3].slug1%>"><%=feature[3].title%></a></h1>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@
             </div>
             <div class="dish">
               <h6 class="light-black"><%=feature[4].category%></h6>
-              <h3><a href="/<%=feature[4].id%>"><%=feature[4].title%></a></h3>
+              <h3><a href="/<%=feature[4].category%>/<%=feature[4].slug1%>"><%=feature[4].title%></a></h3>
               <!-- MAx 10 word paragraph👇 -->
               <p><%=feature[4].summary%></p>
             </div>
@@ -90,7 +90,7 @@
             </div>
             <div class="dish">
               <h6 class="light-black"><%=feature[5].category%></h6>
-              <h3><a href="/<%=feature[5].id%>"><%=feature[5].title%></a></h3>
+              <h3><a href="/<%=feature[5].category%>/<%=feature[5].slug1%>"><%=feature[5].title%></a></h3>
 
               <p><%=feature[5].summary%></p>
 
@@ -102,7 +102,7 @@
             </div>
             <div class="dish">
               <h6 class="light-black"><%=feature[6].category%></h6>
-              <h3> <a href="/<%=feature[6].id%>"><%=feature[6].title%></a></h3>
+              <h3> <a href="/<%=feature[6].category%>/<%=feature[6].slug1%>"><%=feature[6].title%></a></h3>
               <p><%=feature[6].summary%></p>
             </div>
           </div>
@@ -135,7 +135,7 @@
           <img src="<%=item.image%>" alt="" class="slider-image">
           <div class="post-info">
             <h4 class="light-black">
-              <a href="/<%=item.id%>"><%=item.title%></a>
+              <a href="/<%=item.category%>/<%=item.slug1%>"><%=item.title%></a>
             </h4>
             <i class="far fa-user"><%=item.author.username%></i>
             &nbsp;
@@ -195,12 +195,12 @@
           <img src="<%=food[0].image%>" alt="" class="post-image">
           <div class="post-preview">
             <h2 class="light-black">
-              <a href="<%=food[0].id%>"><%=food[0].title%></a></h2>
+              <a href="/<%=food[0].category%>/<%=food[0].slug1%>"><%=food[0].title%></a></h2>
             <i class="far fa-user"><%=food[0].author.username%></i>
             &nbsp;
             <i class="far calendar"><%=food[0].date%></i>
             <p class="preview-text"><%=food[0].summary%></p>
-            <a href="<%=food[0].id%>" class="btn read-more">Read More</a>
+            <a href="/<%=food[0].category%>/<%=food[0].slug1%>" class="btn read-more">Read More</a>
           </div>
         </div>
 
@@ -208,12 +208,12 @@
           <img src="<%=food[1].image%>" alt="" class="post-image">
           <div class="post-preview">
             <h2 class="light-black">
-              <a href="/<%=food[1].id%>"><%=food[1].title%></a></h2>
+              <a href="/<%=food[1].category%>/<%=food[1].slug1%>"><%=food[1].title%></a></h2>
             <i class="far fa-user"><%=food[1].author.username%></i>
             &nbsp;
             <i class="far calendar"><%=food[1].date%></i>
             <p class="preview-text"><%=food[1].summary%></p>
-            <a href="/<%=food[1].id%>" class="btn read-more">Read More</a>
+            <a href="/<%=food[1].category%>/<%=food[1].slug1%>" class="btn read-more">Read More</a>
           </div>
         </div>
 
@@ -221,12 +221,12 @@
           <img src="<%=food[2].image%>" alt="" class="post-image">
           <div class="post-preview">
             <h2 class="light-black">
-              <a href="/<%=food[2].id%>"><%=food[2].title%> </a></h2>
+              <a href="/<%=food[2].category%>/<%=food[2].slug1%>"><%=food[2].title%> </a></h2>
             <i class="far fa-user"><%=food[2].author.username%></i>
             &nbsp;
             <i class="far calendar"><%=food[2].date%></i>
             <p class="preview-text"><%=food[2].summary%></p>
-            <a href="/<%=food[2].id%>" class="btn read-more">Read More</a>
+            <a href="/<%=food[2].category%>/<%=food[2].slug1%>" class="btn read-more">Read More</a>
           </div>
         </div>
 
@@ -234,12 +234,12 @@
           <img src="<%=food[3].image%>" alt="" class="post-image">
           <div class="post-preview">
             <h2 class="light-black">
-              <a href="/<%=food[3].id%>"><%=food[3].title%></a></h2>
+              <a href="/<%=food[3].category%>/<%=food[3].slug1%>"><%=food[3].title%></a></h2>
             <i class="far fa-user"><%=food[3].author.username%></i>
             &nbsp;
             <i class="far calendar"><%=food[3].date%></i>
             <p class="preview-text"><%=food[3].summary%></p>
-            <a href="/<%=food[3].id%>" class="btn read-more">Read More</a>
+            <a href="/<%=food[3].category%>/<%=food[3].slug1%>" class="btn read-more">Read More</a>
           </div>
         </div>
 
