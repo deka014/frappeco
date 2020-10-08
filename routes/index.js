@@ -73,11 +73,11 @@ router.get("/team",function(req,res){
 	res.render("team.ejs")
 })
 
-router.get("/privacyandpolicy",function(req,res){
+router.get("/privacy-policy",function(req,res){
 	res.render("privacypolicy")
 })
 
-router.get("/tandc",function(req,res){
+router.get("/terms",function(req,res){
 	res.render("tandC")
 })
 
