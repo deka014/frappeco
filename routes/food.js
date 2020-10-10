@@ -140,7 +140,7 @@ router.get("/recipes",function(req,res){
 })
 
 router.get("/food-blogs",function(req,res){
-		Food.paginate({category : "food blogs" }, {
+		Food.paginate({category : "food-blogs" }, {
 				 		 page: req.query.page || 1,
 				  		 limit: 12,
 			    		 sort: '-_id'	
@@ -156,7 +156,7 @@ router.get("/food-blogs",function(req,res){
 })
 
 router.get("/food-facts",function(req,res){
-		Food.paginate({category: "food facts"}, {
+		Food.paginate({category: "food-facts"}, {
 				 		 page: req.query.page || 1,
 				  		 limit: 12,
 						 sort: '-_id'	
@@ -171,7 +171,7 @@ router.get("/food-facts",function(req,res){
 })
 
 router.get("/blogging-tips",function(req,res){
-		Food.paginate({category: "blogging tips"}, {
+		Food.paginate({category: "blogging-tips"}, {
 				 		 page: req.query.page || 1,
 				  		 limit: 12,
 						 sort: '-_id'	
@@ -186,7 +186,7 @@ router.get("/blogging-tips",function(req,res){
 })
 
 router.get("/food-affairs",function(req,res){
-		Food.paginate({category: "food affairs"}, {
+		Food.paginate({category: "food-affairs"}, {
 				 		 page: req.query.page || 1,
 				  		 limit: 12,
 						 sort: '-_id'	
@@ -201,7 +201,7 @@ router.get("/food-affairs",function(req,res){
 })
 
 router.get("/food-stories",function(req,res){
-		Food.paginate({category: "food stories"}, {
+		Food.paginate({category: "food-stories"}, {
 				 		 page: req.query.page || 1,
 				  		 limit: 12,
 						 sort: '-_id'	
