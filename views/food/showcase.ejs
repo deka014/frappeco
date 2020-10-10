@@ -17,11 +17,11 @@
             <div class="journal-info mb-30">
 			<div class = "frame">
 				
-              <a href="/<%=food._id%>"><img src="<%= food.image%>" class="img-responsive" alt="img"></a>
+              <a href="/<%=food.category%>/<%=food.slug1%>"><img src="<%= food.image%>" class="img-responsive" alt="img"></a>
 				</div>
               <div class="journal-txt">
 
-				  <a href="/<%=food._id%>"><h4 class="card-title"><%= food.title%></h4></a>
+				  <a href="/<%=food.category%>/<%=food.slug1%>"><h4 class="card-title"><%= food.title%></h4></a>
                 <p class="card-text"><%= food.summary%></p>
 
               </div>
