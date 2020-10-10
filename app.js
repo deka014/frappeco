@@ -79,7 +79,7 @@ app.use(foodRoutes);  ///campgrounds means all the routes will be starting from 
 app.use("/:id/:id1/comments",commentRoutes);
 
 
-app.listen(process.env.PORT || 3000, function() {
+app.listen(process.env.PORT || 5000, function() {
     console.log("Server started");
   }); 
 	
