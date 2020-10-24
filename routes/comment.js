@@ -13,6 +13,7 @@ router.get("/new",middleware.isLoggedIn,function(req,res){
 		    res.redirect("back")
 		}else{
 		res.locals.title = item.title + " Comment - Frappeco"	
+		res.locals.meta.description = {description: "Add new comment to frappeco page" ,robot : "noindex, follow"}	
 		res.render("comments/new",{item:item});
 		}
 	})

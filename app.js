@@ -68,7 +68,8 @@ app.use(function(req,res,next){
 	res.locals.currentUser = req.user;// now  i dont need to {add currentUser : req.user} in every step
 	res.locals.error = req.flash("error");
 	res.locals.message = req.flash("success");
-	res.locals.title = "Frappeco - Never go empty";
+	res.locals.title = "Frappeco - Never go empty", 
+	res.locals.meta = {description: "Frappeco is a platform to everyone, starting from gourmets and connoisseur to bibliophiles to share their relishing memories of food.", robot : "index, follow, max-snippet:-1, max-image-preview:large "};
 	res.locals.paginatedUrl = req.originalUrl.replace(/(\?|\&)page=\d+/g, '') + "?"
 	next();
 });

@@ -48,7 +48,8 @@ router.get("/",async function(req,res){
 		}else{
 		// const delimiter = req.query.search ? '&' : '?';      not used because there are no multiple query
 		var paginatedUrl = req.originalUrl.replace(/(\?|\&)page=\d+/g, '') + "&"
-		res.locals.title = "You searched for " + regex + " - Frappeco"
+		res.locals.title = "You searched for " +req.query.search+ " - Frappeco"
+		res.locals.meta = {robot : "noindex, follow" , description: "Search Result on Frappeco"};
 		res.render("food/showcase",{topic :"search result for : "+ req.query.search, paginatedUrl , food})	
 		}
 		
@@ -62,6 +63,7 @@ router.get("/",async function(req,res){
 				// let random = Math.floor(Math.random() * 25);
 				// console.log(random)
 				// res.locals.navclass = "home-nav-color";
+				res.locals.meta.description = 'Starting from food affairs to exotic and hilarious food experiences and stories along with scrumptious recipes, frappeco is brimming with all of such food related blogs providing a platform to everyone.'
 				res.render("food/index",{food,feature,popular});  //allCampground is accesing the database 
 			}
 			catch(err){
@@ -74,6 +76,7 @@ router.get("/",async function(req,res){
 
 router.get("/new",middleware.isLoggedIn,function(req,res){
 	res.locals.title = "Add New Content - Frappeco"
+	res.locals.meta = {robot : "noindex, follow",description: "Add New Frappeco Content Page"}
     res.render("food/new"); 
 })
 
@@ -134,6 +137,7 @@ router.get("/recipes",function(req,res){
 			console.log(err);
 			} else{
 			res.locals.title = 	"Recipes - Frappeco"
+			res.locals.meta.description = 'Explore all our unique and appetizing recipes on frappeco '
 			res.render("food/showcase",{food: allFood, topic:"Recipes"});  //allCampground is accesing the database 
                   }
 	})
@@ -149,6 +153,7 @@ router.get("/food-blogs",function(req,res){
 			console.log(err);
 			} else{
 			res.locals.title = "Food Blogs - Frappeco"	
+			res.locals.meta.description = "Find all frappeco's food related thoughts via blogs."
 			res.render("food/showcase",{food: allFood, topic:"Food Blogs"});  //allCampground is accesing the database 
                   }
 	})
@@ -164,7 +169,8 @@ router.get("/food-facts",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-			res.locals.title = 	"Food Facts - Frappeco"	
+			res.locals.title = 	"Food Facts - Frappeco"
+			res.locals.meta.description = "Discover the unknown facts to the known world on frapppeco facts"
 			res.render("food/showcase",{food: allFood, topic:"Food Facts"});  //allCampground is accesing the database 
                   }
 	})
@@ -180,6 +186,7 @@ router.get("/blogging-tips",function(req,res){
 			console.log(err);
 			} else{
 			res.locals.title = 	"Blogging Tips - Frappeco"	
+			res.locals.meta.description =  "Frappeco provides the best blogging tips from the renowned bloggers"
 			res.render("food/showcase",{food: allFood, topic:"Blogging Tips"});  //allCampground is accesing the database 
                   }
 	})
@@ -194,7 +201,8 @@ router.get("/food-affairs",function(req,res){
 			if(err){
 			console.log(err);
 			} else{
-			res.locals.title = 	"Food Affairs - Frappeco"	
+			res.locals.title = 	"Food Affairs - Frappeco"
+			res.locals.meta.description = "Stay updated with current scenario of the food world on frappeco food-affairs"	
 			res.render("food/showcase",{food: allFood, topic:"Food Affairs"});  //allCampground is accesing the database 
                   }
 	})
@@ -210,6 +218,7 @@ router.get("/food-stories",function(req,res){
 			console.log(err);
 			} else{
 				res.locals.title = 	"Food Stories - Frappeco"
+				res.locals.meta.description = "Devour some of the best food stories for frappeco family "
 			res.render("food/showcase",{food: allFood, topic:"Food Stories"});  //allCampground is accesing the database 
                   }
 	})
@@ -224,6 +233,7 @@ router.get("/:id/:id1",function(req,res){
 		} else{
 			console.log(foundfood.slug1)
 			res.locals.title = foundfood.title + " - Frappeco"
+			res.locals.meta.description = foundfood.summary
 			res.render("food/show",{food: foundfood });
 		}
 		
@@ -236,6 +246,7 @@ router.get("/:id/:id1/edit",middleware.checkFoodOwnership,function(req,res){
 	//is user logged in
 			Food.findOne({category : req.params.id , slug1 : req.params.id1},function(err,foundfood){
 			res.locals.title = "Edit "+ foundfood.title + " - Frappeco"
+			res.locals.meta = {robot : "noindex, follow" , description: "Edit Frappeco Content Page"}
 			res.render("food/edit",{food: foundfood })
 			
 	});
