@@ -225,16 +225,18 @@ router.get("/food-stories",function(req,res){
 })
 
 router.get("/:id/:id1",function(req,res){
-	Food.findOne({category : req.params.id , slug1 : req.params.id1}).populate("comments").exec(function(err,foundfood){
+	Food.findOne({category : req.params.id , slug1 : req.params.id1}).populate("comments").exec( async function(err,foundfood){
 		if(err || !foundfood){
 			// req.flash("error","Food Not Found");
 			// res.redirect("/")
 			res.render("error")
 		} else{
+			let recommend = await Food.aggregate([ {$match: {$and:[{'approach.recommend': true },{title : {$ne : foundfood.title }} ]}},{$sample: {size: 3}}]);
+			// console.log(recommend)
 			console.log(foundfood.slug1)
 			res.locals.title = foundfood.title + " - Frappeco"
 			res.locals.meta.description = foundfood.summary
-			res.render("food/show",{food: foundfood });
+			res.render("food/show",{food: foundfood , recommend});
 		}
 		
 	})

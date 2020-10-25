@@ -184,18 +184,21 @@
             <div class="card mb-4">
               <div class="card-body">
                 <h4 class="card-title">Recommended</h4>
-
-                <a href="post-image.html" class="d-inline-block mt-3">
-                  <h4 class="h6">The blind man</h4>
-                  <img class="card-img" src="https://images.unsplash.com/photo-1594691564350-ebcbc4d38767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=739&q=80" alt="" />
+				  
+				<% recommend.forEach(function(item){ %>
+					  
+                <a href="/<%= item.category%>/<%= item.slug1 %>" class="d-inline-block mt-3">
+                  <h4 class="h6" style=" color : blue;"><%= item.title %></h4>
+                  <img class="card-img" src="<%=item.image%>" alt="" />
                 </a>
-                <time class="timeago" datetime="2019-10-03 20:00">3 october 2019</time> in Lifestyle
+                <time class="timeago"> <i><%= item.date %></i></time> in <b><%= item.category %></b>
 
-                <a href="post-image.html" class="d-inline-block mt-3">
+				  <% }) %>
+                <!-- <a href="post-image.html" class="d-inline-block mt-3">
                   <h4 class="h6">Crying on the news</h4>
                   <img class="card-img" src="https://images.unsplash.com/photo-1594687052377-cf85ee6a5b4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=625&q=80" alt="" />
                 </a>
-                <time class="timeago" datetime="2019-07-16 20:00">16 july 2019</time> in Work
+                <time class="timeago" datetime="2019-07-16 20:00">16 july 2019</time> in Work -->
 
               </div>
             </div><!-- /.card -->
