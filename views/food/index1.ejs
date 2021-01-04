@@ -1,0 +1,289 @@
+<%- include ("../partials/header")%>
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+      <div class="cover">
+        <div class="feature">
+          <img src="<%=feature[0].image%>" alt="">
+          <div class="title_filter"></div>
+          <div class="feature_title">
+            <div class="date">
+              <div class="date_filter"></div>
+              <h3>14<span>Jun</span></h3>
+            </div>
+            <p>by <a href="#"><%=feature[0].author.username%></a><span></span><a><%=feature[0].category%></a></p>
+            <h1><a href="/<%=feature[0].category%>/<%=feature[0].slug1%>"><%=feature[0].title%></a> </h1>
+          </div>
+
+        </div>
+        <div class="feature">
+          <img src="<%=feature[1].image%>" alt="">
+          <div class="title_filter"></div>
+          <div class="feature_title">
+            <div class="date">
+              <div class="date_filter"></div>
+              <h3>16<span>Jul</span></h3>
+            </div>
+			  <p>by <a href="#"><%=feature[1].author.username%></a><span></span><a><%=feature[1].category%></a></p>
+            <h1><a href="/<%=feature[1].category%>/<%=feature[1].slug1%>"><%=feature[1].title%></a> </h1>
+          </div>
+        </div>
+        <div class="feature" >
+          <img src="<%=feature[2].image%>" alt="">
+          <div class="title_filter"></div>
+          <div class="feature_title">
+            <div class="date">
+              <div class="date_filter"></div>
+              <h3>23<span>Dec</span></h3>
+            </div>
+            <p>by <a href="#"><%=feature[2].author.username%></a><span></span><%=feature[2].category%></p>
+            <h1><a href="/<%=feature[2].category%>/<%=feature[2].slug1%>"><%=feature[2].title%></a></h1>
+          </div>
+        </div>
+        <div class="feature">
+          <img src="<%=feature[3].image%>" alt="">
+          <div class="title_filter"></div>
+          <div class="feature_title">
+            <div class="date">
+              <div class="date_filter"></div>
+              <h3>24<span>Jun</span></h3>
+            </div>
+            <p>by <a href="#"><%=feature[3].author.username%></a><span></span><%=feature[3].category%></p>
+            <h1><a href="/<%=feature[3].category%>/<%=feature[3].slug1%>"><%=feature[3].title%></a></h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- xxxx cover page xxxx -->
+
+
+      <!-- featured post section -->
+      <div class="featured" >
+        <div class="sidebar1" >
+          <div class="about" data-aos="fade-right">
+            <h2 class="section-title" id="about">About <span>Us</span> </h2>
+            <section class="nocolour">
+            <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+            <p class="uppercase">Hello everyone, welcome to our blog!</p>
+            <p>Starting from food affairs to exotic and hilarious food experiences and stories along with scrumptious recipes, frappeco is brimming with all of such food related blogs providing a platform to everyone, starting from gourmets and connoisseur to bibliophiles to share their relishing memories of food.</p>
+      </section>
+          </div>
+        </div>
+        <div class="featured_posts">
+          <h2 class="section-title">Featured Posts</h2>
+          <div class="post1 nocolour">
+
+            <div class="calendar1" data-aos="fade-right">
+              <img src="<%=feature[4].image%>" alt="">
+
+            </div>
+            <div class="dish">
+              <h6 class="light-black"><%=feature[4].category%></h6>
+              <h3><a href="/<%=feature[4].category%>/<%=feature[4].slug1%>"><%=feature[4].title%></a></h3>
+              <!-- MAx 10 word paragraph👇 -->
+              <p><%=feature[4].summary%></p>
+            </div>
+
+          </div>
+          <div class="post1 nocolour">
+            <div class="calendar1" data-aos="fade-left">
+              <img src="<%=feature[5].image%>" alt="">
+            </div>
+            <div class="dish">
+              <h6 class="light-black"><%=feature[5].category%></h6>
+              <h3><a href="/<%=feature[5].category%>/<%=feature[5].slug1%>"><%=feature[5].title%></a></h3>
+
+              <p><%=feature[5].summary%></p>
+
+            </div>
+          </div>
+          <div class="post1 nocolour">
+            <div class="calendar1"data-aos="fade-right">
+              <img src="<%=feature[6].image%>" alt="">
+            </div>
+            <div class="dish">
+              <h6 class="light-black"><%=feature[6].category%></h6>
+              <h3> <a href="/<%=feature[6].category%>/<%=feature[6].slug1%>"><%=feature[6].title%></a></h3>
+              <p><%=feature[6].summary%></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="rightsidebar" data-aos="fade-left">
+          <h2 class="section-title">Facts </h2>
+          <div class="about">
+            <a href="single.html"><img src="https://images.unsplash.com/photo-1532980400857-e8d9d275d858?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="width:100%;" ,height="80%;"></a>
+          <section class="fact nocolour">
+
+          <p>"Studies have shown that eating peanut butter can help lower cholesterol, aid in weight loss and prevent type 2 diabetes. Bet you didn't know this either, but peanut butter glows in the dark after it's exposed to intense light!"</p>
+
+        </section>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Post Silder -->
+    <div class="post-slider">
+      <h1 class="slider-title">Popular Posts</h1>
+      <i class="fas fa-chevron-left prev"></i>
+      <i class="fas fa-chevron-right next"></i>
+      <div class="post-wrapper">
+		  
+	   <%popular.forEach(function(item){%>
+        <div class="post">
+          <img src="<%=item.image%>" alt="" class="slider-image">
+          <div class="post-info">
+            <h4 class="light-black">
+              <a href="/<%=item.category%>/<%=item.slug1%>"><%=item.title%></a>
+            </h4>
+            <i class="far fa-user"><%=item.author.username%></i>
+            &nbsp;
+            <i class="far fa-calendar"><%=item.date%></i>
+          </div>
+        </div>
+	  <% }) %>
+      </div>
+    </div>
+    <!-- xxxxxPost Slider -->
+
+<div class="services ">
+
+  <h1 class="light-black">Our Categories</h1>
+  <div class="cen">
+    <div class="service">
+      <a href="/recipes"> <i class="fas fa-utensils" data-aos="fade-right"></i>
+     <h2 class="light-black">Recipes</h2>
+		  <p>Share and relish the unique recipes</p></a>
+    </div>
+    <div class="service">
+      <a href="/food-blogs"><i class="fas fa-sticky-note" data-aos="fade-left"></i>
+      <h2 class="light-black">Food Blogs</h2>
+		  <p>All food related thoughts via blogs.</p></a>
+    </div>
+    <div class="service">
+      <a href="/food-facts"> <i class="far fa-question-circle" data-aos="fade-right"></i>
+     <h2 class="light-black">Food Facts</h2>
+		  <p>The unknown facts to the known world</p></a>
+    </div>
+    <div class="service">
+      <a href="/blogging-tips"><i class="fas fa-exclamation" data-aos="fade-left"></i>
+     <h2 class="light-black">Blogging Tips</h2>
+		  <p>Providing blogging tips from the renowned bloggers.</p></a>
+    </div>
+    <div class="service">
+      <a href="/food-affairs"><i class="far fa-newspaper" data-aos="fade-right"></i>
+      <h2 class="light-black">Food Affairs</h2>
+		  <p>The current scenario of the food world.</p></a>
+    </div>
+    <div class="service">
+      <a href="/food-stories"><i class="fas fa-book-open" data-aos="fade-left"></i>
+      <h2 class="light-black">Food Stories</h2>
+		  <p>Relish and share scrumptious experiences on food.</p></a>
+    </div>
+
+  </div>
+</div>
+    <!-- Main content -->
+    <div class="content clearfix">
+      <!-- Main Content -->
+      <div class="main-content">
+        <h1 class="recent-post-title">Recent Posts</h1>
+
+        <!-- post -->
+        <div class="post clearfix" data-aos="fade-right">
+          <img src="<%=food[0].image%>" alt="" class="post-image">
+          <div class="post-preview">
+            <h2 class="light-black">
+              <a href="/<%=food[0].category%>/<%=food[0].slug1%>"><%=food[0].title%></a></h2>
+            <i class="far fa-user"><%=food[0].author.username%></i>
+            &nbsp;
+            <i class="far calendar"><%=food[0].date%></i>
+            <p class="preview-text"><%=food[0].summary%></p>
+            <a href="/<%=food[0].category%>/<%=food[0].slug1%>" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+        <div class="post clearfix" data-aos="fade-left">
+          <img src="<%=food[1].image%>" alt="" class="post-image">
+          <div class="post-preview">
+            <h2 class="light-black">
+              <a href="/<%=food[1].category%>/<%=food[1].slug1%>"><%=food[1].title%></a></h2>
+            <i class="far fa-user"><%=food[1].author.username%></i>
+            &nbsp;
+            <i class="far calendar"><%=food[1].date%></i>
+            <p class="preview-text"><%=food[1].summary%></p>
+            <a href="/<%=food[1].category%>/<%=food[1].slug1%>" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+        <div class="post clearfix" data-aos="fade-right">
+          <img src="<%=food[2].image%>" alt="" class="post-image">
+          <div class="post-preview">
+            <h2 class="light-black">
+              <a href="/<%=food[2].category%>/<%=food[2].slug1%>"><%=food[2].title%> </a></h2>
+            <i class="far fa-user"><%=food[2].author.username%></i>
+            &nbsp;
+            <i class="far calendar"><%=food[2].date%></i>
+            <p class="preview-text"><%=food[2].summary%></p>
+            <a href="/<%=food[2].category%>/<%=food[2].slug1%>" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+        <div class="post clearfix" data-aos="fade-left">
+          <img src="<%=food[3].image%>" alt="" class="post-image">
+          <div class="post-preview">
+            <h2 class="light-black">
+              <a href="/<%=food[3].category%>/<%=food[3].slug1%>"><%=food[3].title%></a></h2>
+            <i class="far fa-user"><%=food[3].author.username%></i>
+            &nbsp;
+            <i class="far calendar"><%=food[3].date%></i>
+            <p class="preview-text"><%=food[3].summary%></p>
+            <a href="/<%=food[3].category%>/<%=food[3].slug1%>" class="btn read-more">Read More</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- sidebar -->
+      <div class="sidebar">
+        <div class="section search">
+          <form action="/" method="GET">
+            <input type="text" name="search" class="text-input" id="search" placeholder="Search ...">
+          </form>
+
+        </div>
+        <div class="section topics">
+          <h2 class="light-black">Category</h2>
+          <ul>
+            <li data-aos="fade-right">
+              <a href="/recipes">Recipes</a>
+            </li>
+            <li data-aos="fade-left">
+              <a href="/food-blogs">Food Blogs</a>
+            </li>
+            <li data-aos="fade-right">
+              <a href="/food-facts">Food Facts</a>
+            </li>
+            <li data-aos="fade-left">
+              <a href="/blogging-tips">Blogging Tips</a>
+            </li>
+            <li data-aos="fade-right">
+              <a href="/food-affairs">Food Affairs</a>
+            </li>
+            <li data-aos="fade-left">
+              <a href="/food-stories">Food Stories</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- content -->
+    </div>
+
+  </div>
+
+<%- include ("../partials/footer")%>
+
+
+
+

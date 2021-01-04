@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>  
+	<title><%=title%></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1.0, user-scalable=no" />
+	<meta name="description" content="<%=meta.description%>">  
+	<meta name="robots" content="<%=meta.robot%>">  
+  <link rel="icon" href="/assets/images/favicon.png">		  
+  <!-- Google Fonts -->	
+  <link href="https://fonts.googleapis.com/css2?family=Candal&family=Inter:wght@300&family=Nunito&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- custom styling -->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <link rel="stylesheet" href="/stylesheets/showcase.css">
+  <link rel="stylesheet" href="/stylesheets/originate.css">
+  <link rel="stylesheet" href="/stylesheets/team.css">	  
+	  
+</head>
+
+
+<body>
+  <header class="header ">
+    <div class="logo">
+      <h1 class="logo-text"> <a href="/"><span>fra</span>Ppeco</a> </h1>
+    </div>
+    <i class="fa fa-bars menu-toggle"></i>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <!-- <li><a href="#about">About Us</a></li> -->
+      <li><a href="#foot">Contact Us</a></li>
+      <!-- <li><a href="#">Sign Up</a></li>
+      <li><a href="#">Login</a></li> -->
+	  <%  if(!currentUser){ %>
+		<li><a href="/login">Login</a></li>
+		<li><a href="/register">Sign Up</a></li>
+	<%  }else{   %>
+	  <li>
+        <a href="#">
+          <p class="text-capitalize"><i class="fa fa-user"></i> <%= currentUser.username %>
+          <i class="fa fa-chevron-down" style="font-size: .8rem;"></i></p>
+        </a>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="/logout" class="logout">Logout</a></li>
+        </ul>
+      </li>
+	<%  } %>
+    </ul>
+  </header>
+	
+	<!-- empty error is true so error.length is used -->
+	<% if(error && error.length > 0){ %>
+	<div class="alert alert-danger m-3">
+		<%= error %>
+	</div>
+		<%}%>
+	
+			
+	<% if(message && message.length > 0){ %>
+	<div class="alert alert-success m-3" style="margin: 79px 0 -48px 0 ">
+		<%= message %>
+	</div>
+		<%}%>
+	
+<div class="searchbar">
+
+
+  <form class="topsearchbar" action="/" method="GET">
+    <input id="searchfield" type="text" class="topStext" name="search" placeholder="search from categories..." aria-label="Search">
+	<!-- <input id="searchfield" type="text" placeholder="Search" aria-label="Search" name="search"> -->
+    <input type="submit" class="topSsubmit" name="submit" value="search">
+
+  </form>
+
+</div>
+	
+	
