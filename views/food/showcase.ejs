@@ -1,128 +1,79 @@
-<%- include ("../partials/header")%>
+<%- include("../partials/header") %>
 
-<div id="journal-blog" class="text-left">
+        <div class="page-title wb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <h2 style=" text-transform : capitalize;"><i class="fa fa-search bg-yellow"></i><%=topic%></h2>
+                    </div><!-- end col -->
+                    <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#"><%=meta.description%></a></li>
+                            <!-- <li class="breadcrumb-item active">Gardening</li> -->
+                        </ol>
+                    </div><!-- end col -->                    
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </div><!-- end page-title -->
 
-    <div class="container">
-      <div class="section-title text-center">
-        <h2><%=topic%></h2>
-      </div>
-    </div>
+        <section class="section wb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-wrapper">
+                            <div class="blog-list clearfix">
+								<%food.docs.forEach(function(food){ %>
+                                <div class="blog-box row">
+                                    <div class="col-md-4">
+                                        <div class="post-media">
+                                            <a href="/<%=food.category%>/<%=food.slug1%>" title="">
+                                                <img src="<%=food.image%>" alt="" class="img-fluid">
+                                                <div class="hovereffect"></div>
+                                            </a>
+                                        </div><!-- end media -->
+                                    </div><!-- end col -->
 
-    <div class="container">
-      <div class="journal-block">
-        <div class="row">
-		
-		<%food.docs.forEach(function(food){ %>
-          <div class="col-lg-4 col-md-6">
-            <div class="journal-info mb-30">
-			<div class = "frame">
-				
-              <a href="/<%=food.category%>/<%=food.slug1%>"><img src="<%= food.image%>" class="img-responsive" alt="img"></a>
-				</div>
-              <div class="journal-txt">
+                                    <div class="blog-meta big-meta col-md-8">
+                                        <span class="bg-aqua"><a href="/<%=food.category%>" title=""><%=food.category%></a></span>
+                                        <h4><a href="/<%=food.category%>/<%=food.slug1%>" title=""><%=food.title%></a></h4>
+                                        <p><%=food.summary%></p>
+                                        <!-- <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1887</a></small> -->
+                                        <small><a href="/<%=food.category%>/<%=food.slug1%>" title=""><%=food.date%></a></small>
+                                        <small><a href="#" title="">by <%=food.author.username%></a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end blog-box -->
 
-				  <a href="/<%=food.category%>/<%=food.slug1%>"><h4 class="card-title"><%= food.title%></h4></a>
-                <p class="card-text"><%= food.summary%></p>
+                                <hr class="invis">
+								<% }) %>
+                            </div><!-- end blog-list -->
+                        </div><!-- end page-wrapper -->
 
-              </div>
+                        <hr class="invis">
 
-            </div>
-          </div>
-			<% }) %>
-			
-			 <!-- <div class="col-lg-4 col-md-6">
-            <div class="journal-info mb-30">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-start">
+										<% if(food.page - 1) { %>
+										<li class="page-item"><a class="page-link" href="<%=paginatedUrl%>page=<%= 											food.page - 1 %>">Prev</a></li>
+										<% } %>
+										
+										<% for(let i = 1; i <= food.totalPages; i++) { %>
+										 <li class="page-item"><a class="page-link" href="<%=paginatedUrl%>page=<%= 										i %>" <%= i === food.page ? 'style=color:#000 ;' : '' %>><%= i %></a></li>
+										<% } %>
+										
+										<% if(food.hasNextPage) { %>
+										 <li class="page-item"><a class="page-link" href="<%=paginatedUrl%>page=<%= 										food.page + 1 %>">Next</a></li>
+										<% } %>
+										
+                                
+                                    </ul>
+                                </nav>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end col -->
 
-              <a href="blog-single.html"><img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="img"></a>
+                   
 
-              <div class="journal-txt">
-
-				  <a href="blog-single.html"><h4 class="card-title">Now This Is Beautiful</h4></a>
-                <p class="card-text">Everything you want is here 
-                </p>
-
-              </div>
-
-            </div>
-          </div>
-			
-			 <div class="col-lg-4 col-md-6">
-            <div class="journal-info mb-30">
-
-              <a href="blog-single.html"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="img"></a>
-
-              <div class="journal-txt">
-
-				  <a href="blog-single.html"><h4 class="card-title">Now This Is Beautiful</h4></a>
-                <p class="card-text">Everything you want is here 
-                </p>
-
-              </div>
-
-            </div>
-          </div>
-			
-			 <div class="col-lg-4 col-md-6">
-            <div class="journal-info mb-30">
-
-              <a href="blog-single.html"><img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" class="img-responsive" alt="img"></a>
-
-              <div class="journal-txt">
-
-				  <a href="blog-single.html"><h4 class="card-title">Now This Is Beautiful</h4></a>
-                <p class="card-text">Everything you want is here 
-                </p>
-
-              </div>
-
-            </div>
-          </div>
-			
-			 <div class="col-lg-4 col-md-6">
-            <div class="journal-info mb-30">
-
-              <a href="blog-single.html"><img src="https://images.unsplash.com/photo-1593642634627-6fdaf35209f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="img"></a>
-
-              <div class="journal-txt">
-				
-				  <a href="blog-single.html"><h4 class="card-title">Now This Is Beautiful</h4></a>
-                <p class="card-text">Everything you want is here 
-                </p>
-
-              </div>
-
-            </div>
-          </div>
- -->
-         
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End section journal -->
-
- <!-- <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-left"></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#" data-abc="true">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-right"></i></a></li>
-                            </ul> -->
-
-<div style="margin-bottom:20px; margin-left:50%;">
-<% if(food.page - 1) { %>
-	<a href="<%=paginatedUrl%>page=<%= food.page - 1 %>">Prev</a>
-<% } %>
-<% for(let i = 1; i <= food.totalPages; i++) { %>
-	<a href="<%=paginatedUrl%>page=<%= i %>"
-		 <%= i === food.page ? 'style=color:#000;' : '' %>
-		><%= i %></a>
-<% } %>
-<% if(food.hasNextPage) { %>
-	<a href="<%=paginatedUrl%>page=<%= food.page + 1 %>">Next</a>
-<% } %>
-</div>
-
-<%- include ("../partials/footer")%>
+        <%- include("../partials/footer") %>
