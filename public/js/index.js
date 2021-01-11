@@ -48,6 +48,6 @@ $('.post-wrapper').slick({
 // upload file name appear on uploading input
 $("#image").on("change", function() {
   var fileName = $(this).val().split("\\").pop();;
-  $(this).next(".custom-file-label").html(fileName);
+  $(this).next('.form-control-file').addClass("selected").html(fileName);
 });
 

@@ -147,3 +147,9 @@
 }
 
 /* End add tags */
+
+/* choose file css  */
+
+.custom-file-control.selected:lang(en)::after {
+  content: "" !important;
+}

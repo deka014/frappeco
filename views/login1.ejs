@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+
+<div class="auth-content">
+
+
+  <form action="/login" method="post">
+    <h2 class="form-title section-title">Login</h2>
+	  
+    <div>
+      <label>Email</label>
+      <input type="text" name="email" class="text-input">
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" name="password" class="text-input">
+    </div>
+    <div>
+      <button type="submit" name="login-btn" class="btn btn-big">Login</button>
+    </div>
+    <p>or
+      <a href="/register">Sign-Up</a>
+    </p>
+  </form>
+</div>
+
+<%- include("partials/footer.ejs") %>
+
+

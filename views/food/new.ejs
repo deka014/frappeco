@@ -13,9 +13,13 @@
 	<input class="form-control"type="text" name="food[title]" placeholder="Title" required>
 		  </div>
 		  <label>Thumbnail (First Image To Appear In Your Blog)</label>	   
-		  <div class="p-auto mb-4 custom-file">
-	<input class="custom-file-input" type="file" id="image" name="image" accept="image/*" required>
-		<label class="custom-file-label" for="image">Choose file</label>
+		  <div class="p-auto mb-4 custom-file" style ="display: block ;">
+			  <label class="custom-file w-100 ">
+ 			 <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" required>
+  			<span class="custom-file-control form-control-file"></span>
+			</label>
+	<!-- <input class="custom-file-input" type="file" id="image" name="image" accept="image/*" required>
+		<label class="custom-file-label" for="image">Choose file</label> -->
 		  </div>
 		  <label>Overview (Write About Your Post In One Or Two Lines) </label>
 		  <div class="form-group m-auto pb-3">
@@ -135,6 +139,8 @@
 <script defer src="/js/summernote-bs4.js"></script>
 <script defer src="/js/editor.js" ></script>
 <script defer src="/js/tags.js"></script>
+<script defer src="/js/choose-file.js"></script>
+
 
 <!-- <script defer src="js/summernote-video-attributes.js" ></script> -->
 </div>
