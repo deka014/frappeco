@@ -268,7 +268,7 @@ router.put("/:id/:id1",middleware.checkFoodOwnership,upload.any(),function(req,r
 					await cloudinary.v2.uploader.destroy(updatingPost.imageId);
 					var result = await cloudinary.v2.uploader.upload(thumbnail.path);
 					updatingPost.imageId = result.public_id;
-					updatingPost.image = cloudinary.url(result.public_id,{quality:'auto',fetch_format: "auto", width: 1080, height: 800, crop: "fill"});
+					updatingPost.image = cloudinary.url(result.public_id,{quality:'auto',fetch_format: "auto", width: 1084, height: 723, crop: "fill" , secure:"true"});
 				}
 				catch(err){
 					req.flash("error",err.message);
