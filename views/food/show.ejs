@@ -19,9 +19,9 @@
 
                                 <div class="post-sharing">
                                     <ul class="list-inline">
-                                        <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                                        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                                        <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                                        <li class="social-share-fb"><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                        <li class="social-share-twitter"><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                        <li class="socail-share-google"><a href="#" class="gp-button btn btn-primary"><i class="fa fa-linkedin"></i></a></li>
                                     </ul>
                                 </div><!-- end post-sharing -->
                             </div><!-- end title -->
@@ -40,19 +40,31 @@
                             <div class="blog-title-area">
                                 <div class="tag-cloud-single">
                                     <span>Tags</span>
-                                    <small><a href="#" title="">lifestyle</a></small>
-                                    <small><a href="#" title="">colorful</a></small>
-                                    <small><a href="#" title="">trending</a></small>
-                                    <small><a href="#" title="">another tag</a></small>
+									 <% food.tagOutput.split(',').forEach(function(tag) { %>   
+									 <small><a href="/?search=<%=tag%>" title=""><%=tag%></a></small>
+									<%  }) %>
                                 </div><!-- end meta -->
 
                                 <div class="post-sharing">
                                     <ul class="list-inline">
-                                        <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
-                                        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
-                                        <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                                        <li class = "social-share-fb"><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                        <li class="socail-share-twitter"><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                        <li class="social-share-linkdin"><a href="#" class="gp-button btn btn-primary"><i class="fa fa-linkedin"></i></a></li>
                                     </ul>
                                 </div><!-- end post-sharing -->
+								 
+								
+			<%if(currentUser && food.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin ){%>
+						<a class= "btn btn-xs btn-warning" href="/<%=food.category%>/<%=food.slug1%>/edit">
+						Edit
+						</a>
+					
+							<form id="delete-form" action="/<%=food.category%>/<%=food.slug1%>?_method=DELETE" method="POST" 								onsubmit="return confirm('Are You Sure You Want To Do That?')" style="display:inline;">
+								<button class="btn btn-danger">
+										Delete
+								</button>
+							</form>
+			<% } %>
                             </div><!-- end title -->
 
                             <div class="row">
@@ -188,9 +200,9 @@
                         <div class="sidebar">
                             <div class="widget">
                                 <h2 class="widget-title">Search</h2>
-                                <form class="form-inline search-form">
+                                <form class="form-inline search-form" action="/" method="GET">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search on the site">
+                                         <input type="text" class="form-control" name="search" placeholder="Search on the site">
                                     </div>
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                 </form>
