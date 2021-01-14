@@ -7,6 +7,7 @@ passport 	  = require("passport"),
 LocalStrategy = require("passport-local"),
 methodOverride= require("method-override"),
 faker =  require("faker"),
+session = require("express-session"),
 //data base 
 // Food	 	  	  = require("./models/food"),
 // Comment 	  	  = require("./models/comment"),
@@ -15,6 +16,8 @@ User 		  = require("./models/user"),
 commentRoutes	 = require("./routes/comment"),
 foodRoutes	 	 = require("./routes/food"),
 indexRoutes 	 = require("./routes/index");
+
+const MongoStore = require('connect-mongo')(session);
 
 mongoose.set("useUnifiedTopology", true); 
 // console.log(process.env.DATABASEURL)  in terminal- export DATABASEURL=mongodb://localhost/yelp_camp
@@ -49,11 +52,18 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 //passsport configuration
-app.use(require("express-session")({
+app.use(session({
 	secret  			: "youtube vs tiktok",
-	resave				: false,
-	saveUninitialized 	: false
+	// resave				: false,
+	// saveUninitialized 	: false
+		cookie: { maxAge : 60000 * 60 * 24 * 7  },     //in milliseconds.
+        resave: false,                  //Don't save the session to store if it hasn't changed
+        rolling: true,                  //Reset the cookie Max-Age on every request
+        saveUninitialized: false,       //Don't create a session for anonymous users
+        secret: "youtube vs tiktok",
+        store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
+
 app.use(passport.initialize());
 app.use(passport.session());
 // passport.use(new LocalStrategy(User.authenticate()));//user.authenticate is from passport package
