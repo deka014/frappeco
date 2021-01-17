@@ -653,7 +653,7 @@ div.tab button:hover {
 
 .footer ul {
     padding: 0;
-    margin: 0;
+    margin: 9% 0;
     list-style: none;
 }
 
@@ -688,6 +688,15 @@ div.tab button:hover {
 .footer-text .fa {
     font-size: 21px;
     margin: 0 0.3rem;
+}
+
+footer h4{
+	color : white;
+}
+
+.quick-links{
+	display : flex;
+ 	justify-content : space-around;
 }
 
 .dmtop {

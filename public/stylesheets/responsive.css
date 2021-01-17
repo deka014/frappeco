@@ -111,6 +111,12 @@
         float: none;
         width: 100%;
     }
+	.footer {
+    padding: 2rem 0 2rem;
+}
+	.footer li{
+		padding : 0 7px;
+	}
     .topbar-section .text-right {
         text-align: center !important;
     }

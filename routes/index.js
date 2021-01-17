@@ -80,7 +80,7 @@ router.get("/team",function(req,res){
 	res.render("team.ejs")
 })
 
-router.get("/privacy-policy",function(req,res){
+router.get("/privacy",function(req,res){
 	res.locals.title = "Privacy Policy - Frappeco"
 	res.locals.meta.description =  "PRIVACY POLICY. Effective date: 2020-09-05. 1. Introduction. Welcome to Frappeco. Frappeco operates frappeco.com hereinafter referred to as “Service"
 	res.render("privacypolicy")
