@@ -1,7 +1,9 @@
 var express = require("express"),
 	router = express.Router(),
 	passport = require("passport"),
-	User = require("../models/user");
+	User = require("../models/user"),
+	Subscribers = require("../models/subscribers");
+
 	
 
 // router.get("/",function(req,res){
@@ -90,6 +92,26 @@ router.get("/terms",function(req,res){
 	res.locals.title = "Terms & Conditions - Frappeco"
 	res.locals.meta.description = "These Terms of Service govern your use of our website located at frappeco.com (together or individually “Service”) operated by frappeco"
 	res.render("tandC")
+})
+
+router.get("/contact",function(req,res){
+	res.locals.title = "Contact Us"
+	res.locals.meta.description = "Frappeco is a food blog by young and ambitious food enthusiast from Guwahati, serving their unique taste. "
+	res.render("contact")
+})
+
+router.post("/contact",(req,res)=>{
+	Subscribers.create(req.body.info,(err,subscriber)=>{
+		if (err){
+			req.flash("error", "Something Went Wromg ")
+			res.redirect("/")
+		}
+		else{
+			console.log(req.body.info.email)
+			req.flash("success", "Thank You ! You will hear from us soon! ")
+			res.redirect("/")
+		}
+	})
 })
 
 module.exports = router;
