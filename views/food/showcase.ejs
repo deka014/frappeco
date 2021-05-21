@@ -1,5 +1,5 @@
 <%- include("../partials/header") %>
-
+       
         <div class="page-title wb">
             <div class="container">
                 <div class="row">
@@ -12,7 +12,7 @@
                             <li class="breadcrumb-item"><a href="#"><%=meta.description%></a></li>
                             <!-- <li class="breadcrumb-item active">Gardening</li> -->
                         </ol>
-                    </div><!-- end col -->                    
+                    </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
         </div><!-- end page-title -->
@@ -58,16 +58,16 @@
 										<% if(food.page - 1) { %>
 										<li class="page-item"><a class="page-link" href="<%=paginatedUrl%>page=<%= 											food.page - 1 %>">Prev</a></li>
 										<% } %>
-										
+
 										<% for(let i = 1; i <= food.totalPages; i++) { %>
 										 <li class="page-item"><a class="page-link" href="<%=paginatedUrl%>page=<%= 										i %>" <%= i === food.page ? 'style=color:#000 ;' : '' %>><%= i %></a></li>
 										<% } %>
-										
+
 										<% if(food.hasNextPage) { %>
 										 <li class="page-item"><a class="page-link" href="<%=paginatedUrl%>page=<%= 										food.page + 1 %>">Next</a></li>
 										<% } %>
-										
-                                
+
+
                                     </ul>
                                 </nav>
                             </div><!-- end col -->
@@ -77,6 +77,6 @@
 				</div>
 			</div>
 		</section>
-                   
+
 
         <%- include("../partials/footer") %>
