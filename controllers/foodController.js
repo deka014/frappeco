@@ -369,3 +369,11 @@ module.exports.deleteBlog = function (req, res) {
     }
   )
 }
+
+
+
+//helper function 
+
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+}
